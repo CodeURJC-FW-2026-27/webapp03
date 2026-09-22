@@ -2,7 +2,7 @@
 
 ## Integrantes del equipo de desarrollo
 * **Adrián Varea Fernández** - a.varea.2023@alumnos.urjc.es - GitHub: [blodresg](https://github.com/blodresg)
-* **Nombre Apellido1 Apellido2** - correo@alumnos.urjc.es - GitHub: [@usuario2](https://github.com/usuario2)
+* **Salvador Barquilla Cedillo** - s.barquilla.2025@alumnos.urjc.es - GitHub: [SalvaB14](https://github.com/SalvaB14)
 * **Nombre Apellido1 Apellido2** - correo@alumnos.urjc.es - GitHub: [@usuario3](https://github.com/usuario3)
 
 ## Funcionalidad
