@@ -43,7 +43,3 @@
 * **Categorización:** Menú de navegación principal/lateral que organiza y muestra los destinos clasificados por su `continente` o zona geográfica (`Europa`, `Asia`, `América`, `África`, `Oceanía`).
 * **Filtrado:** Formulario dinámico para filtrar el catálogo de destinos por su `rango_precio` (o presupuesto máximo) y según el tipo de experiencia disponible.
 * **Categorización:** Menú de navegación agrupado por `continente` o zona geográfica para navegar por los diferentes destinos.
-
-
-
-Cambio Salvador
