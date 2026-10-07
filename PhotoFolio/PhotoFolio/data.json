@@ -1,0 +1,164 @@
+[
+  {
+    "name": "Oslo",
+    "country": "Noruega",
+    "continent": "Europa",
+    "description": "Capital noruega conocida por sus espacios verdes, arquitectura vanguardista y museos históricos.",
+    "priceRange": "ALTO",
+    "recommendedSeason": "PRIMAVERA",
+    "imageUrl": "/images/destinations/oslo.jpg",
+    "activities": [
+      {
+        "title": "Visita al Museo de Barcos Vikingos y Vigeland",
+        "description": "Recorrido por las célebres esculturas del Parque Vigeland y la historia marítima nórdica.",
+        "price": 25.00,
+        "category": "CULTURA",
+        "requiresBooking": true,
+        "imageUrl": "/images/activities/vigeland.jpg"
+      },
+      {
+        "title": "Crucero por el Fiordo de Oslo",
+        "description": "Paseo en barco por el fiordo admirando las pequeñas islas y las pintorescas casas de madera.",
+        "price": 55.00,
+        "category": "NATURALEZA",
+        "requiresBooking": true,
+        "imageUrl": "/images/activities/crucero-oslo.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Kioto",
+    "country": "Japón",
+    "continent": "Asia",
+    "description": "Antigua capital imperial japonesa famosa por sus templos budistas, jardines y santuarios Shinto.",
+    "priceRange": "ALTO",
+    "recommendedSeason": "PRIMAVERA",
+    "imageUrl": "/images/destinations/kioto.jpg",
+    "activities": [
+      {
+        "title": "Ceremonia Tradicional del Té",
+        "description": "Experiencia cultural auténtica en una casa de té histórica en el barrio de Gion.",
+        "price": 45.00,
+        "category": "CULTURA",
+        "requiresBooking": true,
+        "imageUrl": "/images/activities/ceremonia-te.jpg"
+      },
+      {
+        "title": "Ruta Gastronómica por Nishiki Market",
+        "description": "Degustación de brochetas, tempura y dulces tradicionales en el mercado central.",
+        "price": 35.00,
+        "category": "GASTRONOMÍA",
+        "requiresBooking": false,
+        "imageUrl": "/images/activities/nishiki.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Hanoi",
+    "country": "Vietnam",
+    "continent": "Asia",
+    "description": "Capital de Vietnam célebre por su arquitectura de la era colonial y su vibrante gastronomía callejera.",
+    "priceRange": "ECONÓMICO",
+    "recommendedSeason": "OTOÑO",
+    "imageUrl": "/images/destinations/hanoi.jpg",
+    "activities": [
+      {
+        "title": "Crucero por la Bahía de Ha-Long",
+        "description": "Excursión de un día en barco entre islotes de piedra caliza y cuevas naturales.",
+        "price": 55.00,
+        "category": "NATURALEZA",
+        "requiresBooking": true,
+        "imageUrl": "/images/activities/halong.jpg"
+      },
+      {
+        "title": "Street Food Tour por el Barrio Antiguo",
+        "description": "Recorrido a pie probando Pho, Banh Mi y el famoso café de huevo vietnamita.",
+        "price": 15.00,
+        "category": "GASTRONOMÍA",
+        "requiresBooking": false,
+        "imageUrl": "/images/activities/street-food.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Valencia",
+    "country": "España",
+    "continent": "Europa",
+    "description": "Ciudad costera mediterránea que combina historia, playas y la vanguardia de la Ciudad de las Artes.",
+    "priceRange": "MEDIO",
+    "recommendedSeason": "PRIMAVERA",
+    "imageUrl": "/images/destinations/valencia.jpg",
+    "activities": [
+      {
+        "title": "Taller de Paella Valenciana Tradicional",
+        "description": "Cocina tu propia paella con ingredientes frescos comprados en el Mercado Central.",
+        "price": 50.00,
+        "category": "GASTRONOMÍA",
+        "requiresBooking": true,
+        "imageUrl": "/images/activities/paella.jpg"
+      },
+      {
+        "title": "Ruta en Bici por los Jardines del Turia",
+        "description": "Paseo guiado en bicicleta por el cauce del río convertido en gran parque urbano.",
+        "price": 18.00,
+        "category": "AVENTURA",
+        "requiresBooking": false,
+        "imageUrl": "/images/activities/bici-turia.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Dubái",
+    "country": "Emiratos Árabes Unidos",
+    "continent": "Asia",
+    "description": "Lujosa metrópolis conocida por sus rascacielos ultramodernos, compras de alto nivel y vida nocturna.",
+    "priceRange": "LUJO",
+    "recommendedSeason": "INVIERNO",
+    "imageUrl": "/images/destinations/dubai.jpg",
+    "activities": [
+      {
+        "title": "Entrada VIP al Piso 148 del Burj Khalifa",
+        "description": "Acceso a la plataforma de observación más alta del mundo con aperitivos y guía privado.",
+        "price": 140.00,
+        "category": "CULTURA",
+        "requiresBooking": true,
+        "imageUrl": "/images/activities/burj-khalifa.jpg"
+      },
+      {
+        "title": "Safari Privado en el Desierto con Cena VIP",
+        "description": "Ruta en 4x4 por las dunas, paseo en camello y cena Gourmet bajo las estrellas.",
+        "price": 210.00,
+        "category": "AVENTURA",
+        "requiresBooking": true,
+        "imageUrl": "/images/activities/safari-dubai.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Oaxaca",
+    "country": "México",
+    "continent": "América",
+    "description": "Ciudad colonial reconocida por su cultura indígena, artesanías y reputación como capital gastronómica.",
+    "priceRange": "ECONÓMICO",
+    "recommendedSeason": "OTOÑO",
+    "imageUrl": "/images/destinations/oaxaca.jpg",
+    "activities": [
+      {
+        "title": "Visita a las Cascadas Petrificadas de Hierve el Agua",
+        "description": "Excursión a las famosas pozas naturales con vistas panorámicas de la sierra.",
+        "price": 25.00,
+        "category": "NATURALEZA",
+        "requiresBooking": false,
+        "imageUrl": "/images/activities/hierve-agua.jpg"
+      },
+      {
+        "title": "Cata de Mezcal en Palenque Artesanal",
+        "description": "Recorrido explicando el proceso de destilación del agave y degustación de mezcales.",
+        "price": 30.00,
+        "category": "GASTRONOMÍA",
+        "requiresBooking": true,
+        "imageUrl": "/images/activities/mezcal.jpg"
+      }
+    ]
+  }
+]
