@@ -169,6 +169,78 @@
 
     </section><!-- /Gallery Details Section -->
 
+
+  <!--New activity-->
+
+   <!-- New activity title -->
+    <div class="page-title" data-aos="fade">
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Formulario de nueva actividad</li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+    <!-- /New activity title -->
+
+    <!-- New activity section -->
+    <section id="contact" class="contact section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <!--New activity form-->
+        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+          <div class="row gy-4">
+
+
+            <!--New activity features-->
+
+            <div class="col-md-6">
+              <input type="text" name="activity-title" class="form-control" placeholder="Título de la actividad" required="">
+            </div>
+
+            <div class="col-md-6">
+              <input type="text" name="activity-price" class="form-control" placeholder="Precio de la actividad" required="">
+            </div>
+
+            <div class="col-md-6">
+              <input type="text" name="activity-category" class="form-control" placeholder="Categoría de la actividad" required="">
+            </div>
+
+            <div class="col-md-6">
+              <input type="text" name="activity-requires-booking" class="form-control" placeholder="Requiere reserva previa" required="">
+            </div>
+
+            <div class="col-md-12">
+              <textarea class="form-control" name="activity-description" rows="6" placeholder="Descripción de la actividad" required=""></textarea>
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="activity-image-url" placeholder="URL de la imagen de la actividad" required="">
+            </div>
+            
+            <!--/New activity features-->
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Cargando...</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Actividad guardada con éxito.</div>
+
+              <button type="submit">Guardar</button>
+            </div>
+
+          </div>
+        </form>
+        <!-- /New activity form -->
+
+      </div>
+
+    </section>
+    <!-- /New activity section -->
+
+    <!--/New activity-->
+
   </main>
 
   <footer id="footer" class="footer">

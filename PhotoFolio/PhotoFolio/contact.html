@@ -57,7 +57,7 @@
 
   <main class="main">
 
-    <!-- Page Title -->
+    <!-- new element title -->
     <div class="page-title" data-aos="fade">
       <div class="heading">
         <div class="container">
@@ -77,63 +77,65 @@
           </ol>
         </div>
       </nav>
-    </div><!-- End Page Title -->
+    </div>
+    <!-- /new element title -->
 
-    <!-- Contact Section -->
+    <!-- new element section -->
     <section id="contact" class="contact section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <!-- new element form -->
         <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
           <div class="row gy-4">
-
 
             <!--New element features-->
 
             <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Ciudad de destino" required="">
+              <input type="text" name="element-name" class="form-control" placeholder="Ciudad de destino" required="">
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="country" class="form-control" placeholder="País" required="">
+              <input type="text" name="element-country" class="form-control" placeholder="País" required="">
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="continent" class="form-control" placeholder="Continente" required="">
+              <input type="text" name="element-continent" class="form-control" placeholder="Continente" required="">
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="price-range" class="form-control" placeholder="Rango de precio (Bajo / Medio / Alto)" required="">
+              <input type="text" name="element-price-range" class="form-control" placeholder="Rango de precio (Bajo / Medio / Alto)" required="">
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="recomended-season" class="form-control" placeholder="Época recomendada" required="">
+              <input type="text" name="element-recommended-season" class="form-control" placeholder="Época recomendada" required="">
             </div>
 
             <div class="col-md-12">
-              <textarea class="form-control" name="description" rows="6" placeholder="Descripción del destino" required=""></textarea>
+              <textarea class="form-control" name="element-description" rows="6" placeholder="Descripción del destino" required=""></textarea>
             </div>
 
             <div class="col-md-12">
-              <input type="text" class="form-control" name="image-url" placeholder="URL de la imagen del destino" required="">
+              <input type="text" class="form-control" name="element-image-url" placeholder="URL de la imagen del destino" required="">
             </div>
             
             <!--/New element features-->
 
             <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
+              <div class="loading">Cargando...</div>
               <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="sent-message">Elemento guardado con éxito.</div>
 
-              <button type="submit">Guardar</button>
+              <button type="submit">Crear</button>
               <a href="index.html" class="btn btn-secondary">Cancelar</a>
             </div>
 
           </div>
-        </form><!-- End Contact Form -->
+        </form>
+        <!-- new element form -->
 
       </div>
 
-    </section><!-- /Contact Section -->
+    </section><!-- /new element section -->
 
   </main>
 
