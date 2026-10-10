@@ -160,5 +160,86 @@
         "imageUrl": "/images/activities/mezcal.jpg"
       }
     ]
+  },
+  {
+    "name": "Ciudad del Cabo",
+    "country": "Sudáfrica",
+    "continent": "África",
+    "description": "Impresionante ciudad costera dominada por la emblemática Montaña de la Mesa y playas de aguas cristalinas.",
+    "priceRange": "MEDIO",
+    "recommendedSeason": "VERANO",
+    "imageUrl": "/images/destinations/ciudad-del-cabo.jpg",
+    "activities": [
+      {
+        "title": "Ascenso en Teleférico a Table Mountain",
+        "description": "Subida a la cima para disfrutar de vistas panorámicas de 360 grados de la península.",
+        "price": 22.00,
+        "category": "NATURALEZA",
+        "requiresBooking": false,
+        "imageUrl": "/images/activities/table-mountain.jpg"
+      },
+      {
+        "title": "Excursión a la Colonia de Pingüinos de Boulders Beach",
+        "description": "Visita a la reserva natural costera para observar de cerca a los pingüinos africanos.",
+        "price": 12.00,
+        "category": "NATURALEZA",
+        "requiresBooking": false,
+        "imageUrl": "/images/activities/boulders-beach.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Cusco",
+    "country": "Perú",
+    "continent": "América",
+    "description": "Antigua capital del Imperio Inca ubicada en los Andes, puerta de entrada hacia las ruinas de Machu Picchu.",
+    "priceRange": "ECONÓMICO",
+    "recommendedSeason": "VERANO",
+    "imageUrl": "/images/destinations/cusco.jpg",
+    "activities": [
+      {
+        "title": "Trek por el Valle Sagrado e Pisac",
+        "description": "Caminata guiada entre terrazas agrícolas incas y los coloridos mercados locales.",
+        "price": 35.00,
+        "category": "AVENTURA",
+        "requiresBooking": true,
+        "imageUrl": "/images/activities/valle-sagrado.jpg"
+      },
+      {
+        "title": "Tour Histórico al Templo de Qorikancha",
+        "description": "Recorrido cultural para descubrir el choque de la arquitectura inca y colonial.",
+        "price": 10.00,
+        "category": "CULTURA",
+        "requiresBooking": false,
+        "imageUrl": "/images/activities/qorikancha.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Sídney",
+    "country": "Australia",
+    "continent": "Oceanía",
+    "description": "Cosmopolita urbe costera mundialmente famosa por su Ópera, el puente del puerto y playas de surf.",
+    "priceRange": "ALTO",
+    "recommendedSeason": "INVIERNO",
+    "imageUrl": "/images/destinations/sidney.jpg",
+    "activities": [
+      {
+        "title": "Tour Guiado en el Ópera House de Sídney",
+        "description": "Visita entre bambalinas del emblemático edificio diseñado por Jørn Utzon.",
+        "price": 30.00,
+        "category": "CULTURA",
+        "requiresBooking": true,
+        "imageUrl": "/images/activities/opera-house.jpg"
+      },
+      {
+        "title": "Clase de Surf en Bondi Beach",
+        "description": "Sesión práctica con instructores certificados en una de las playas más famosas del mundo.",
+        "price": 60.00,
+        "category": "AVENTURA",
+        "requiresBooking": true,
+        "imageUrl": "/images/activities/surf-bondi.jpg"
+      }
+    ]
   }
 ]
