@@ -229,6 +229,9 @@ h6 {
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .navmenu ul {
