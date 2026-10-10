@@ -172,6 +172,91 @@ h6 {
   margin-right: 6px;
 }
 
+.index-header .index-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.index-header-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+}
+
+.destination-categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.destination-categories-label {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.destination-categories ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.destination-categories li span {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 78%);
+  border-radius: 50rem;
+  color: var(--default-color);
+  font-size: 0.8rem;
+}
+
+.destination-search {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: min(100%, 440px);
+  flex: none;
+  margin: 0 auto;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 4px;
+  background: var(--surface-color);
+  color: color-mix(in srgb, var(--default-color), transparent 35%);
+  transition: border-color 0.3s ease;
+}
+
+.destination-search:focus-within {
+  border-color: var(--accent-color);
+}
+
+.destination-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--default-color);
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.destination-search input::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 45%);
+}
+
 .header .header-social-links {
   padding-right: 15px;
 }
@@ -845,6 +930,38 @@ section,
 /*--------------------------------------------------------------
 # Gallery Section
 --------------------------------------------------------------*/
+.gallery .destination-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.gallery .create-destination-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.15rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.gallery .create-destination-btn:hover,
+.gallery .create-destination-btn:focus-visible {
+  border-color: color-mix(in srgb, var(--accent-color) 90%, white 10%);
+  background: color-mix(in srgb, var(--accent-color) 90%, white 10%);
+  color: var(--contrast-color);
+}
+
+.gallery .create-destination-btn:focus-visible {
+  outline: 2px solid var(--contrast-color);
+  outline-offset: 3px;
+}
+
 .gallery .gallery-item {
   position: relative;
   overflow: hidden;
@@ -894,6 +1011,89 @@ section,
 
 .gallery .gallery-item:hover img {
   transform: scale(1.1);
+}
+
+.gallery .destination-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-color);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery .destination-card:hover,
+.gallery .destination-card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.gallery .destination-image {
+  display: block;
+  overflow: hidden;
+}
+
+.gallery .destination-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.gallery .destination-card:hover img,
+.gallery .destination-card:focus-within img {
+  transform: scale(1.06);
+}
+
+.gallery .destination-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 1.25rem 1.35rem;
+}
+
+.gallery .destination-info h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.gallery .destination-price {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.gallery .destination-price span {
+  padding: 0.3rem 0.7rem;
+  border-radius: 50rem;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery .destination-card,
+  .gallery .destination-image img {
+    transition: none;
+  }
+
+  .gallery .destination-card:hover,
+  .gallery .destination-card:focus-within {
+    transform: none;
+  }
+
+  .gallery .destination-card:hover img,
+  .gallery .destination-card:focus-within img {
+    transform: none;
+  }
 }
 
 .glightbox-clean .gslide-description {

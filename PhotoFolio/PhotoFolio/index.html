@@ -38,26 +38,35 @@
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+  <header id="header" class="header index-header sticky-top">
+    <div class="container-fluid index-header-content">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <i class="bi bi-camera"></i>
-        <h1 class="sitename">SuperTrip</h1>
-      </a>
+      <div class="index-header-top">
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <i class="bi bi-camera"></i>
+          <h1 class="sitename">SuperTrip</h1>
+        </a>
 
-      <nav id="navmenu" class="navmenu">
+        <nav id="navmenu" class="navmenu">
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+
+      <nav class="destination-categories" aria-label="Categorías por rango de precio">
+        <span class="destination-categories-label">Rango de precio</span>
         <ul>
-          <li><a href="index.html" class="active">Página principal<br></a></li>
-          <li><a href="about.html">Añadir nuevo destino</a></li>
-
+          <li><span>Económico</span></li>
+          <li><span>Medio</span></li>
+          <li><span>Alto</span></li>
+          <li><span>Lujo</span></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      
+      <div class="destination-search" role="search">
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <input type="search" aria-label="Buscar destino por nombre" placeholder="Buscar destino...">
+      </div>
 
     </div>
   </header>
@@ -84,97 +93,122 @@
 
       <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
 
+        <div class="destination-actions">
+          <a href="contact.html" class="create-destination-btn">
+            <i class="bi bi-plus-lg" aria-hidden="true"></i>
+            Crear nuevo elemento
+          </a>
+        </div>
+
         <div class="row gy-4 justify-content-center">
 
           <div class="col-xl-4 col-lg-6 col-md-12">
-            <div class="gallery-item h-100">
-              <a href="gallery-single.html">
-                <img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt="">
+            <article class="gallery-item destination-card h-100">
+              <a href="gallery-single.html" class="destination-image">
+                <img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt="Destino Oslo">
               </a>
-              <h1>Oslo</h1>
-              <p>Rango de precio : ALTO</p>
-            </div>
+              <div class="destination-info">
+                <h2>Oslo</h2>
+                <p class="destination-price mb-0">Rango de precio <span>Alto</span></p>
+              </div>
+            </article>
           </div>
 
           <div class="col-xl-4 col-lg-6 col-md-12">
-            <div class="gallery-item h-100">
-              <a href="gallery-single.html">
-                <img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt="">
+            <article class="gallery-item destination-card h-100">
+              <a href="gallery-single.html" class="destination-image">
+                <img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt="Destino Kioto">
               </a>
-              <h1>Kioto</h1>
-              <p>Rango de precio : ALTO</p>
-            </div>
-          </div><!-- End Gallery Item -->
+              <div class="destination-info">
+                <h2>Kioto</h2>
+                <p class="destination-price mb-0">Rango de precio <span>Alto</span></p>
+              </div>
+            </article>
+          </div>
 
           <div class="col-xl-4 col-lg-6 col-md-12">
-            <div class="gallery-item h-100">
-              <a href="gallery-single.html">
-                <img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt="">
+            <article class="gallery-item destination-card h-100">
+              <a href="gallery-single.html" class="destination-image">
+                <img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt="Destino Hanoi">
               </a>
-              <h1>Hanoi</h1>
-              <p>Rango de precio : ECONÓMICO</p>
-            </div>
-          </div><!-- End Gallery Item -->
+              <div class="destination-info">
+                <h2>Hanoi</h2>
+                <p class="destination-price mb-0">Rango de precio <span>Económico</span></p>
+              </div>
+            </article>
+          </div>
 
           <div class="col-xl-4 col-lg-6 col-md-12">
-            <div class="gallery-item h-100">
-              <a href="gallery-single.html">
-                <img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt="">
+            <article class="gallery-item destination-card h-100">
+              <a href="gallery-single.html" class="destination-image">
+                <img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt="Destino Valencia">
               </a>
-              <h1>Valencia</h1>
-              <p>Rango de precio : MEDIO</p>
-            </div>
-          </div><!-- End Gallery Item -->
+              <div class="destination-info">
+                <h2>Valencia</h2>
+                <p class="destination-price mb-0">Rango de precio <span>Medio</span></p>
+              </div>
+            </article>
+          </div>
 
           <div class="col-xl-4 col-lg-6 col-md-12">
-            <div class="gallery-item h-100">
-              <a href="gallery-single.html">
-                <img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt="">
+            <article class="gallery-item destination-card h-100">
+              <a href="gallery-single.html" class="destination-image">
+                <img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt="Destino Dubái">
               </a>
-              <h1>Dubái</h1>
-              <p>Rango de precio : LUJO</p>
-            </div>
-          </div><!-- End Gallery Item -->
+              <div class="destination-info">
+                <h2>Dubái</h2>
+                <p class="destination-price mb-0">Rango de precio <span>Lujo</span></p>
+              </div>
+            </article>
+          </div>
 
           <div class="col-xl-4 col-lg-6 col-md-12">
-            <div class="gallery-item h-100">
-              <a href="gallery-single.html">
-                <img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt="">
+            <article class="gallery-item destination-card h-100">
+              <a href="gallery-single.html" class="destination-image">
+                <img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt="Destino Oaxaca">
               </a>
-              <h1>Oaxaca</h1>
-              <p>Rango de precio : ECONÓMICO</p>
-            </div>
-          </div><!-- End Gallery Item -->
+              <div class="destination-info">
+                <h2>Oaxaca</h2>
+                <p class="destination-price mb-0">Rango de precio <span>Económico</span></p>
+              </div>
+            </article>
+          </div>
 
           <div class="col-xl-4 col-lg-6 col-md-12">
-            <div class="gallery-item h-100">
-              <a href="gallery-single.html">
-                <img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt="">
+            <article class="gallery-item destination-card h-100">
+              <a href="gallery-single.html" class="destination-image">
+                <img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt="Destino Ciudad del Cabo">
               </a>
-              <h1>Ciudad del Cabo</h1>
-              <p>Rango de precio : MEDIO</p>
-            </div>
-          </div><!-- End Gallery Item -->
+              <div class="destination-info">
+                <h2>Ciudad del Cabo</h2>
+                <p class="destination-price mb-0">Rango de precio <span>Medio</span></p>
+              </div>
+            </article>
+          </div>
 
           <div class="col-xl-4 col-lg-6 col-md-12">
-            <div class="gallery-item h-100">
-              <a href="gallery-single.html">
-                <img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt="">
+            <article class="gallery-item destination-card h-100">
+              <a href="gallery-single.html" class="destination-image">
+                <img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt="Destino Cusco">
               </a>
-              <h1>Cusco</h1>
-              <p>Rango de precio : ECONÓMICO</p>
-            </div>
-          </div><!-- End Gallery Item -->
+              <div class="destination-info">
+                <h2>Cusco</h2>
+                <p class="destination-price mb-0">Rango de precio <span>Económico</span></p>
+              </div>
+            </article>
+          </div>
 
           <div class="col-xl-4 col-lg-6 col-md-12">
-            <div class="gallery-item h-100">
-              <a href="gallery-single.html">
-                <img src="assets/img/gallery/gallery-9.jpg" class="img-fluid" alt="">
+            <article class="gallery-item destination-card h-100">
+              <a href="gallery-single.html" class="destination-image">
+                <img src="assets/img/gallery/gallery-9.jpg" class="img-fluid" alt="Destino Sídney">
               </a>
-              <h1>Sídney</h1>
-              <p>Rango de precio : ALTO</p>
-            </div>
-          </div><!-- End Gallery Item -->
+              <div class="destination-info">
+                <h2>Sídney</h2>
+                <p class="destination-price mb-0">Rango de precio <span>Alto</span></p>
+              </div>
+            </article>
+          </div>
 
         </div>
 
