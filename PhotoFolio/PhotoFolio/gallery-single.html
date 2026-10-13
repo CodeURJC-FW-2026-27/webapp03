@@ -42,14 +42,13 @@
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
+        
         <img src="assets/img/logo_new.png" alt="Logo" class="img-fluid">
         <h1 class="sitename">SuperTrip</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <i class="mobile-nav-toggle d-none bi bi-list"></i>
       </nav>
 
     </div>
@@ -84,7 +83,7 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <!-- Gallery Details Section -->
+    
     <section id="gallery-details" class="gallery-details section">
 
       <div class="container" data-aos="fade-up">
@@ -139,7 +138,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <h5>Actividad: Visita al Museo de Barcos Vikingos y Vigeland</h5>
-                    <img src="https://depuertoenpuerto.com/wp-content/uploads/2019/11/Cubierta-del-barco-de-Oseberg.jpg" style="width: 350px; margin-bottom: 30px; margin-top: 30px;">
+                    <img src="assets/img/gallery/Cubierta-del-barco-de-Oseberg.jpg" style="width: 350px; margin-bottom: 30px; margin-top: 30px;">
                       <p>
                         Descripción: Recorrido por las célebres esculturas del Parque Vigeland y la historia marítima nórdica.
                       <p>
@@ -161,7 +160,7 @@
                   <div class="row">
                     <div class="col-md-6">
                       <h5 class="mb-3 mt-3">Actividad: Crucero por el Fiordo de Oslo</h5>
-                      <img src="https://crucerosatumedida.com/wp-content/uploads/2019/01/Crucero-fiordos.jpg" style="width: 350px; margin-bottom: 30px; margin-top: 30px;">
+                      <img src="assets/img/gallery/Crucero-fiordos.jpg" style="width: 350px; margin-bottom: 30px; margin-top: 30px;">
                         <p>
                           Descripción: Paseo en barco por el fiordo admirando las pequeñas islas y las pintorescas casas de madera.
                         <p>
@@ -186,7 +185,7 @@
 
       </div>
 
-    </section><!-- /Gallery Details Section -->
+    </section>
 
 
   <!--New activity-->
@@ -220,11 +219,11 @@
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="activity-price" class="form-control" placeholder="Precio de la actividad" required="">
+              <input type="number" name="activity-price" class="form-select" placeholder="Precio de la actividad" required="" step="0.01" min="0">
             </div>
 
             <div class="col-md-6">
-              <select name="element-category" class="form-control" required="">
+              <select name="element-category" class="form-select" required="">
                 <option value="" disabled selected>Selecciona la categoría de la actividad</option>
                 <option value="adventure">AVENTURA</option>
                 <option value="culture">CULTURA</option>
@@ -234,7 +233,7 @@
             </div>
 
             <div class="col-md-6">
-              <select name="activty-requires-booking" class="form-control" required="">
+              <select name="activity-requires-booking" class="form-select" required="">
                 <option value="" disabled selected>¿Requiere reserva previa?</option>
                 <option value="yes">SI</option>
                 <option value="no">NO</option>
@@ -246,7 +245,7 @@
             </div>
 
             <div class="col-md-12">
-              <input type="text" class="form-control" name="activity-image-url" placeholder="URL de la imagen de la actividad" required="">
+              <input type="url" class="form-control" name="activity-image-url" placeholder="URL de la imagen de la actividad" required="">
             </div>
             
             <!--/New activity features-->
