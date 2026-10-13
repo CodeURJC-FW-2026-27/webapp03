@@ -224,11 +224,21 @@
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="activity-category" class="form-control" placeholder="Categoría de la actividad" required="">
+              <select name="element-category" class="form-control" required="">
+                <option value="" disabled selected>Selecciona la categoría de la actividad</option>
+                <option value="adventure">AVENTURA</option>
+                <option value="culture">CULTURA</option>
+                <option value="gastronomy">GASTRONOMÍA</option>
+                <option value="nature">NATURALEZA</option>
+              </select>
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="activity-requires-booking" class="form-control" placeholder="Requiere reserva previa" required="">
+              <select name="activty-requires-booking" class="form-control" required="">
+                <option value="" disabled selected>¿Requiere reserva previa?</option>
+                <option value="yes">SI</option>
+                <option value="no">NO</option>
+              </select>
             </div>
 
             <div class="col-md-12">
@@ -242,10 +252,6 @@
             <!--/New activity features-->
 
             <div class="col-md-12 text-center">
-              <div class="loading">Cargando...</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Actividad guardada con éxito.</div>
-
               <button type="button" class="btn btn-success">Guardar</button>
             </div>
 
