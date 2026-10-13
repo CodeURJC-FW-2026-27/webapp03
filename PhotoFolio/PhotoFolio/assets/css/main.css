@@ -1587,6 +1587,25 @@ section,
   background-color: color-mix(in srgb, var(--accent-color) 90%, white 10%);
 }
 
+.contact .php-email-form button[type=cancel] {
+  color: var(--default-color);
+  background: red;
+  font-weight: 400;
+  font-size: 14px;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 40px;
+  border: 0;
+  border-radius: 4px;
+  transition: 0.5s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact .php-email-form button[type=cancel]:hover {
+  background-color: color-mix(in srgb, red 90%, white 10%);
+}
+
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
