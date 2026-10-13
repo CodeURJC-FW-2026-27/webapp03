@@ -1579,6 +1579,7 @@ section,
   background-color: var(--surface-color);
 }
 
+
 .contact .php-email-form button[type=submit] {
   color: var(--default-color);
   background: var(--accent-color);
