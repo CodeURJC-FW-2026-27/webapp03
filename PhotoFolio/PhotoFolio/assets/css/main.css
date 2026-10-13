@@ -1568,6 +1568,7 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
+
 .contact .php-email-form button[type=submit] {
   color: var(--default-color);
   background: var(--accent-color);
