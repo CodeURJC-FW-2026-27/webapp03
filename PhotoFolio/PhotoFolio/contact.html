@@ -103,11 +103,23 @@
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="element-price-range" class="form-control" placeholder="Rango de precio (Bajo / Medio / Alto)" required="">
+              <select name="element-price-range" class="form-control" required="">
+                <option value="" disabled selected>Selecciona un rango de precio</option>
+                <option value="economical">ECONÓMICO</option>
+                <option value="medium">MEDIO</option>
+                <option value="high">ALTO</option>
+                <option value="luxury">LUJO</option>
+              </select>
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="element-recommended-season" class="form-control" placeholder="Época recomendada" required="">
+              <select name="element-recomended-season" class="form-control" required="">
+                <option value="" disabled selected>Selecciona la época recomendada</option>
+                <option value="winter">INVIERNO</option>
+                <option value="spring">PRIMAVERA</option>
+                <option value="summer">VERANO</option>
+                <option value="autumn">OTOÑO</option>
+              </select>
             </div>
 
             <div class="col-md-12">
@@ -121,12 +133,8 @@
             <!--/New element features-->
 
             <div class="col-md-12 text-center">
-              <div class="loading">Cargando...</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Elemento guardado con éxito.</div>
-
-              <button type="submit">Crear</button>
-              <button type="cancel" onclick="window.location.href='index.html'">Cancelar</button>
+              <button type="button" class="btn btn-success">Guardar</button>
+              <button type="button" class="btn btn-danger" onclick="window.location.href='index.html'">Cancelar</button>
             </div>
 
           </div>
