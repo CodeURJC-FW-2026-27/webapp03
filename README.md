@@ -86,23 +86,22 @@
 ### 👤 Salvador Barquilla Cedillo (`@SalvaB14`)
 
 #### Descripción de Tareas Realizadas
-* Configuración inicial del repositorio, ramas de trabajo y estructura de carpetas del proyecto.
-* Desarrollo e integración del sistema de filtros por continente, país y rango de precios.
-* Implementación de la lógica de procesamiento para formularios de la aplicación.
+* He diseñado la página de nuevo elemento y el formulario de nueva actividad de la página de detalle. Además de algún que otro arreglo mínimo como buscar la plantilla Boostrap.
 
 #### 5 Commits Más Significativos
-1. [chore: initial repository configuration and project setup](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_1)
-2. [feat: implement destination filter logic](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_2)
-3. [feat: add form validation for new items](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_3)
-4. [fix: resolve filter persistence issues on page load](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_4)
-5. [refactor: optimize data querying functions](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_5)
+1. [Formuario de nuevo elemento (aún sin detallar por completo)](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/1f1db62c1999a134012ddb9a822d4e3d05d92d04)
+2. [Formulario de nueva actividad (aún sin detallar por completo)](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/11a62fd37ed24a3c8bcd37cc4ad1b2e204ed4006)
+3. [Elección de algunos elementos mediante desplegables](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/e6e54499bfec819a2be097dda6268096285e4e21)
+4. [Cambio final en diseño de formularios](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/6cbae8bcd47d254b9dff0a81f6b6b27c27d0b88c)
+5. [Cambio de diseño en los botones](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/158cc52353143c8a6cb360519557b919f2ba2b1e)
+
 
 #### 5 Ficheros Principales
-1. [`src/routes/filters.js`](https://github.com/USUARIO/REPO/blob/main/src/routes/filters.js)
-2. [`public/js/filters.js`](https://github.com/USUARIO/REPO/blob/main/public/js/filters.js)
-3. [`views/new-item.html`](https://github.com/USUARIO/REPO/blob/main/views/new-item.html)
-4. [`src/controllers/itemController.js`](https://github.com/USUARIO/REPO/blob/main/src/controllers/itemController.js)
-5. [`public/css/filters.css`](https://github.com/USUARIO/REPO/blob/main/public/css/filters.css)
+1. [`new_element.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/new_element.html)
+2. [`detail_page.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/detail_page.html)
+3. [`index.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/index.html)
+4. [`assets/css/main.css`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/assets/css/main.css)
+5. [`assets/img`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/assets/img)
 
 ---
 
