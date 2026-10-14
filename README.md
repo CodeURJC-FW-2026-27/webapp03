@@ -1,4 +1,4 @@
-# Portal Turístico - Guía de Destinos y Experiencias
+# SuperTrip - Guía de Destinos y Experiencias
 
 ## Integrantes del equipo de desarrollo
 * **Adrián Varea Fernández** - a.varea.2023@alumnos.urjc.es - GitHub: [blodresg](https://github.com/blodresg)
@@ -43,3 +43,89 @@
 * **Categorización:** Menú de navegación principal/lateral que organiza y muestra los destinos clasificados por su `continente` o zona geográfica (`Europa`, `Asia`, `América`, `África`, `Oceanía`).
 * **Filtrado:** Formulario dinámico para filtrar el catálogo de destinos por su `rango_precio` (o presupuesto máximo) y según el tipo de experiencia disponible.
 * **Categorización:** Menú de navegación agrupado por `continente` o zona geográfica para navegar por los diferentes destinos.
+
+# Práctica 1
+
+## Capturas de Pantalla
+
+### Página Principal
+![Página Principal](docs/images/pagina_principal.png)
+
+### Página de Detalle
+![Página de Detalle](docs/images/pagina_detalle.png)
+
+### Página de Nuevo Elemento
+![Página de Nuevo Elemento](docs/images/pagina_nuevo_elemento.png)
+
+---
+
+## Participación de Miembros del Equipo
+
+---
+
+### 👤 Adrián Varea Fernández (`@blodresg`)
+
+#### Descripción de Tareas Realizadas
+* Maquetación y estructura base de la interfaz responsiva utilizando Bootstrap.
+* Implementación de la vista principal con rejilla de tarjetas para destinos y desarrollo de vistas de detalle.
+* Definición y validación del esquema de datos JSON para almacenar información de destinos y actividades.
+
+#### 5 Commits Más Significativos
+1. [feat: add responsive grid layout for destinations](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_1)
+2. [feat: implement detailed view for destination items](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_2)
+3. [fix: validate JSON structure for mock travel data](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_3)
+4. [refactor: update Bootstrap navbar and footer components](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_4)
+5. [docs: structure initial README setup](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_5)
+
+#### 5 Ficheros Principales
+1. [`public/index.html`](https://github.com/USUARIO/REPO/blob/main/public/index.html)
+2. [`public/js/main.js`](https://github.com/USUARIO/REPO/blob/main/public/js/main.js)
+3. [`src/data/destinations.json`](https://github.com/USUARIO/REPO/blob/main/src/data/destinations.json)
+4. [`public/css/styles.css`](https://github.com/USUARIO/REPO/blob/main/public/css/styles.css)
+5. [`views/destination-detail.html`](https://github.com/USUARIO/REPO/blob/main/views/destination-detail.html)
+
+---
+
+### 👤 Salvador Barquilla Cedillo (`@SalvaB14`)
+
+#### Descripción de Tareas Realizadas
+* Configuración inicial del repositorio, ramas de trabajo y estructura de carpetas del proyecto.
+* Desarrollo e integración del sistema de filtros por continente, país y rango de precios.
+* Implementación de la lógica de procesamiento para formularios de la aplicación.
+
+#### 5 Commits Más Significativos
+1. [chore: initial repository configuration and project setup](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_1)
+2. [feat: implement destination filter logic](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_2)
+3. [feat: add form validation for new items](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_3)
+4. [fix: resolve filter persistence issues on page load](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_4)
+5. [refactor: optimize data querying functions](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_5)
+
+#### 5 Ficheros Principales
+1. [`src/routes/filters.js`](https://github.com/USUARIO/REPO/blob/main/src/routes/filters.js)
+2. [`public/js/filters.js`](https://github.com/USUARIO/REPO/blob/main/public/js/filters.js)
+3. [`views/new-item.html`](https://github.com/USUARIO/REPO/blob/main/views/new-item.html)
+4. [`src/controllers/itemController.js`](https://github.com/USUARIO/REPO/blob/main/src/controllers/itemController.js)
+5. [`public/css/filters.css`](https://github.com/USUARIO/REPO/blob/main/public/css/filters.css)
+
+---
+
+### 👤 Sergio Abueitah Cantero (`@SergioAbueitah`)
+
+#### Descripción de Tareas Realizadas
+* Diseño y maquetación responsiva del menú de navegación y pie de página.
+* Estilado de componentes para la visualización de detalles de actividades en cada destino.
+* Ajustes de accesibilidad y adaptación del diseño general a diferentes resoluciones de pantalla.
+
+#### 5 Commits Más Significativos
+1. [style: add header and responsive navigation bar](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_1)
+2. [feat: design activity detail view layout](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_2)
+3. [style: apply consistent footer layout across pages](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_3)
+4. [fix: media query adjustments for mobile screens](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_4)
+5. [style: integrate activity card component styles](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_5)
+
+#### 5 Ficheros Principales
+1. [`public/css/navbar.css`](https://github.com/USUARIO/REPO/blob/main/public/css/navbar.css)
+2. [`views/activity-detail.html`](https://github.com/USUARIO/REPO/blob/main/views/activity-detail.html)
+3. [`public/css/footer.css`](https://github.com/USUARIO/REPO/blob/main/public/css/footer.css)
+4. [`src/data/activities.json`](https://github.com/USUARIO/REPO/blob/main/src/data/activities.json)
+5. [`public/js/activities.js`](https://github.com/USUARIO/REPO/blob/main/public/js/activities.js)
