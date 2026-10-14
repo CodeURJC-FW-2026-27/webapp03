@@ -49,13 +49,13 @@
 ## Capturas de Pantalla
 
 ### Página Principal
-![Página Principal](docs/images/pagina_principal.png)
+[![Página Principal](PhotoFolio/PhotoFolio/assets/img/captura_index.jpg)](PhotoFolio/PhotoFolio/assets/img/captura_index.jpg)
 
 ### Página de Detalle
-![Página de Detalle](docs/images/pagina_detalle.png)
+[![Página de Detalle](PhotoFolio/PhotoFolio/assets/img/captura_detalle.jpg)](PhotoFolio/PhotoFolio/assets/img/captura_detalle.jpg)
 
 ### Página de Nuevo Elemento
-![Página de Nuevo Elemento](docs/images/pagina_nuevo_elemento.png)
+[![Página de Formulario](PhotoFolio/PhotoFolio/assets/img/captura_formulario-jpg.png)](PhotoFolio/PhotoFolio/assets/img/captura_formulario-jpg.png)
 
 ---
 
