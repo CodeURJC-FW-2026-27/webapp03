@@ -110,19 +110,17 @@
 ### 👤 Sergio Abueitah Cantero (`@SergioAbueitah`)
 
 #### Descripción de Tareas Realizadas
-* Diseño y maquetación responsiva del menú de navegación y pie de página.
-* Estilado de componentes para la visualización de detalles de actividades en cada destino.
-* Ajustes de accesibilidad y adaptación del diseño general a diferentes resoluciones de pantalla.
+* Me he encargado de realizar la pagina de detalle, de buscar las imágenes de la entidad principal y de las entidades secundarias, y de colocar toda la información y los respectivos botones de cada actividad 
 
 #### 5 Commits Más Significativos
-1. [style: add header and responsive navigation bar](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_1)
-2. [feat: design activity detail view layout](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_2)
-3. [style: apply consistent footer layout across pages](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_3)
-4. [fix: media query adjustments for mobile screens](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_4)
-5. [style: integrate activity card component styles](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_5)
+1. [Informacion destino](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/5e5080fc9c45c3bf4e61c8148dba36b83a5adf20)
+2. [Imágenes y enlaces](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/d8187bbfa87f01cb63c07fb069417a6e9bb665ac)
+3. [Completando informacion del destino](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/1aacacce822e41ca8ae53d22d15e44306b3b2e26)
+4. [Estilo y color de los botones](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/0449d3ffe7825919583063f5542afcf7e7042fd8)
+5. [Cambio final en el color de los botones](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/70e54cc34b77625bf99d94fa4da327899a14c431)
 
 #### 5 Ficheros Principales
-1. [`public/css/navbar.css`](https://github.com/USUARIO/REPO/blob/main/public/css/navbar.css)
+1. [`public/css/detail_page.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/detail_page.html)
 2. [`views/activity-detail.html`](https://github.com/USUARIO/REPO/blob/main/views/activity-detail.html)
 3. [`public/css/footer.css`](https://github.com/USUARIO/REPO/blob/main/public/css/footer.css)
 4. [`src/data/activities.json`](https://github.com/USUARIO/REPO/blob/main/src/data/activities.json)
