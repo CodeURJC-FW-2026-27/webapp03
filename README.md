@@ -86,7 +86,7 @@
 ### 👤 Salvador Barquilla Cedillo (`@SalvaB14`)
 
 #### Descripción de Tareas Realizadas
-* He diseñado la página de nuevo elemento y el formulario de nueva actividad de la página de detalle. Además de algún que otro arreglo mínimo como buscar la plantilla Boostrap.
+* He diseñado la página de nuevo elemento y el formulario de nueva actividad de la página de detalle. Además de algún que otro arreglo mínimo como buscar la plantilla Bootstrap.
 
 #### 5 Commits Más Significativos
 1. [Formuario de nuevo elemento (aún sin detallar por completo)](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/1f1db62c1999a134012ddb9a822d4e3d05d92d04)
