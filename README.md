@@ -66,12 +66,10 @@
 ### 👤 Adrián Varea Fernández (`@blodresg`)
 
 #### Descripción de Tareas Realizadas
-* Maquetación y estructura base de la interfaz responsiva utilizando Bootstrap.
-* Implementación de la vista principal con rejilla de tarjetas para destinos y desarrollo de vistas de detalle.
-* Definición y validación del esquema de datos JSON para almacenar información de destinos y actividades.
+* Me he encargado de buscar los datos de ejemplo y sus imágenes, de rellenar la página principal colocando sus elementos y sus botones y de algún arreglo o detalle ocasional del resto de la página.
 
 #### 5 Commits Más Significativos
-1. [feat: add responsive grid layout for destinations](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_1)
+1. [Página principal](https://github.com/blodresg/CodeURJC-FW-2025-27/webapp03/commit/bdd1b2de160ec25d71985359ff4daf67edbc60a8)
 2. [feat: implement detailed view for destination items](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_2)
 3. [fix: validate JSON structure for mock travel data](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_3)
 4. [refactor: update Bootstrap navbar and footer components](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_4)
