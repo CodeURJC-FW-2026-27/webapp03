@@ -67,20 +67,19 @@
 
 #### Descripción de Tareas Realizadas
 * Me he encargado de buscar los datos de ejemplo y sus imágenes, de rellenar la página principal colocando sus elementos y sus botones y de algún arreglo o detalle ocasional del resto de la página.
-
 #### 5 Commits Más Significativos
-1. [Página principal]([https://github.com/blodresg/CodeURJC-FW-2025-27/webapp03/commit/bdd1b2de160ec25d71985359ff4daf67edbc60a8](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/bdd1b2de160ec25d71985359ff4daf67edbc60a8))
-2. [feat: implement detailed view for destination items](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_2)
-3. [fix: validate JSON structure for mock travel data](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_3)
-4. [refactor: update Bootstrap navbar and footer components](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_4)
-5. [docs: structure initial README setup](https://github.com/USUARIO/REPO/commit/HASH_COMMIT_5)
+1. [Página principal](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/bdd1b2de160ec25d71985359ff4daf67edbc60a8)
+2. [Cambios a index.html](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/3f8333214e6e8ca33b60ca8e048cac7934d1ca87)
+3. [Imágenes destinos](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/aa513510ebfdf0eb347e6e4d43e6d414dc33853a)
+4. [Json con datos de ejemplo](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/2e66e987fdbb287d4782dc3c80bb186144d77fe9)
+5. [Ajustes de archivos y correcciones](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/d47938503b3d96e062e586567d2f44218f0ebd30)
 
 #### 5 Ficheros Principales
-1. [`public/index.html`](https://github.com/USUARIO/REPO/blob/main/public/index.html)
-2. [`public/js/main.js`](https://github.com/USUARIO/REPO/blob/main/public/js/main.js)
-3. [`src/data/destinations.json`](https://github.com/USUARIO/REPO/blob/main/src/data/destinations.json)
-4. [`public/css/styles.css`](https://github.com/USUARIO/REPO/blob/main/public/css/styles.css)
-5. [`views/destination-detail.html`](https://github.com/USUARIO/REPO/blob/main/views/destination-detail.html)
+1. [`index.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/index.html)
+2. [`detail_page.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/detail_page.html)
+3. [`new_element.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/new_element.html)
+4. [`assets/css/main.css`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/assets/css/main.css)
+5. [`data.json`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/data.json)
 
 ---
 
