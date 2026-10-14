@@ -118,8 +118,9 @@
 5. [Cambio final en el color de los botones](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/70e54cc34b77625bf99d94fa4da327899a14c431)
 
 #### 5 Ficheros Principales
-1. [`public/css/detail_page.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/detail_page.html)
-2. [`views/activity-detail.html`](https://github.com/USUARIO/REPO/blob/main/views/activity-detail.html)
-3. [`public/css/footer.css`](https://github.com/USUARIO/REPO/blob/main/public/css/footer.css)
-4. [`src/data/activities.json`](https://github.com/USUARIO/REPO/blob/main/src/data/activities.json)
-5. [`public/js/activities.js`](https://github.com/USUARIO/REPO/blob/main/public/js/activities.js)
+1. [`detail_page.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/detail_page.html)
+2. [`index.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/index.html)
+3. [`new_element.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/new_element.html)
+4. [`assets/css/main.css`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/assets/css/main.css)
+5. [`data.json`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/data.json)
+
