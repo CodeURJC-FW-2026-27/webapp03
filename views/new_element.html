@@ -57,8 +57,11 @@
       <nav class="breadcrumbs">
         <div class="container">
           <ol>
-            <li><a href="index.html">Menú Principal</a></li>
-            <li class="current">Formulario de nuevo elemento</li>
+            <li><a href="/">Menú Principal</a></li>
+            <li class="current">
+              {{#destination}}Editar destino{{/destination}}
+              {{^destination}}Formulario de nuevo elemento{{/destination}}
+            </li>
           </ol>
         </div>
       </nav>
@@ -70,7 +73,7 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <!-- new element form -->
-        <form action="/destinations/new" method="post" enctype="multipart/form-data" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+        <form action="{{#destination}}/destinations/{{_id}}/edit{{/destination}}{{^destination}}/destinations/new{{/destination}}" method="post" enctype="multipart/form-data" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
           <div class="row gy-4">
 
             <!--New element features-->
@@ -88,24 +91,25 @@
             </div>
 
             <div class="col-md-6">
-              <select name="priceRange"class="form-select" required>
+              <select name="priceRange" class="form-select" required>
                 <option value="" disabled {{^destination}}selected{{/destination}}>Selecciona un rango de precio</option>
-                <option value="economical">ECONÓMICO</option>
-                <option value="medium">MEDIO</option>
-                <option value="high">ALTO</option>
-                <option value="luxury">LUJO</option>
+                <option value="economical" {{#isEconomical}}selected{{/isEconomical}}>ECONÓMICO</option>
+                <option value="medium" {{#isMedium}}selected{{/isMedium}}>MEDIO</option>
+                <option value="high" {{#isHigh}}selected{{/isHigh}}>ALTO</option>
+                <option value="luxury" {{#isLuxury}}selected{{/isLuxury}}>LUJO</option>
               </select>
             </div>
 
             <div class="col-md-6">
-              <select name="recommendedSeason" value="{{destination.recomendedSeason}}" class="form-select" required>
-                <option value="" disabled                 <option value="" disabled {{^destination}}selected{{/destination}} >Selecciona la época recomendada</option>
-                <option value="winter">INVIERNO</option>
-                <option value="spring">PRIMAVERA</option>
-                <option value="summer">VERANO</option>
-                <option value="autumn">OTOÑO</option>
+              <select name="recommendedSeason" class="form-select" required>
+                <option value="" disabled {{^destination}}selected{{/destination}}>Selecciona la época recomendada</option>
+                <option value="winter" {{#isWinter}}selected{{/isWinter}}>INVIERNO</option>
+                <option value="spring" {{#isSpring}}selected{{/isSpring}}>PRIMAVERA</option>
+                <option value="summer" {{#isSummer}}selected{{/isSummer}}>VERANO</option>
+                <option value="autumn" {{#isAutumn}}selected{{/isAutumn}}>OTOÑO</option>
               </select>
             </div>
+
 
             <div class="col-md-12">
               <textarea class="form-control" name="description" rows="6" minlength="3" maxlength="500" placeholder="Descripción del destino (3-500 caracteres)" required>{{destination.description}}</textarea>

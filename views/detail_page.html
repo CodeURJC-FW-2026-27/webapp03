@@ -158,8 +158,7 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <!--New activity form-->
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
-          <div class="row gy-4">
+        <form action="/destinations/{{destination._id}}/activities/new" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
 
 
             <!--New activity features-->
@@ -201,7 +200,7 @@
             <!--/New activity features-->
 
             <div class="col-md-12 text-center">
-              <button type="button" class="btn btn-success">Guardar</button>
+              <button type="submit" class="btn btn-success">Guardar</button>
             </div>
 
           </div>

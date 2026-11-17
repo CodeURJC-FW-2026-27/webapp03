@@ -50,3 +50,30 @@ export async function getPost(id){
     return await posts.findOne({ _id: new ObjectId(id) });
 }
 
+export async function updatePost(id, changes) {
+    return await posts.updateOne(
+        { _id: new ObjectId(id) },
+        { $set: changes }
+    );
+}
+
+export async function addActivity(destinationId, activity) {
+    return await posts.updateOne(
+        { _id: new ObjectId(destinationId) },
+        { $push: { activities: activity } }
+    );
+}
+
+export async function activityTitleExists(destinationId, title) {
+    const destination = await posts.findOne(
+        {
+            _id: new ObjectId(destinationId),
+            'activities.title': title
+        },
+        {
+            collation: { locale: 'es', strength: 2 }
+        }
+    );
+
+    return destination !== null;
+}
