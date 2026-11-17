@@ -1,13 +1,31 @@
 import express from 'express';
 import multer from 'multer';
 import fs from 'node:fs/promises';
+import { ObjectId } from 'mongodb';
 
 import * as board from './board.js';
 
 const router = express.Router();
 export default router;
 
-const upload = multer({ dest: board.UPLOADS_FOLDER })
+const upload = multer({ dest: board.UPLOADS_FOLDER });
+
+const renderNotice = (res, status, title, message, actionUrl, actionLabel) => {
+    res.status(status).render('notice', { title, message, actionUrl, actionLabel });
+};
+
+const renderDestinationDetail = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+    }
+
+    const destination = await board.getPost(req.params.id);
+    if (!destination) {
+        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+    }
+
+    res.render('detail_page', { destination });
+};
 
 const renderIndex = async (_req, res) => {
     const destinations = await board.getPosts();
@@ -17,52 +35,100 @@ const renderIndex = async (_req, res) => {
 router.get('/', renderIndex);
 router.get('/index.html', renderIndex);
 
-router.get('/new_element.html', (req, res) => {
-    res.render('new_element');
-});
+router.get('/new_element.html', (_req, res) => res.render('new_element'));
 
-router.get('/detail_page.html', (req, res) => {
-    res.render('detail_page');
-});
-
-router.post('/post/new', upload.single('image'), async (req, res) => {
-
-    let post = {
-        user: req.body.user,
-        title: req.body.title,
-        text: req.body.text,
-        imageFilename: req.file?.filename
+const createDestination = async (req, res) => {
+    const destination = {
+        name: String(req.body.name || '').trim(),
+        country: String(req.body.country || '').trim(),
+        continent: String(req.body.continent || '').trim(),
+        priceRange: String(req.body.priceRange || ''),
+        recommendedSeason: String(req.body.recommendedSeason || ''),
+        description: String(req.body.description || '').trim()
     };
+    const errors = [];
 
-    await board.addPost(post);
-
-    res.render('saved_post', { _id: post._id.toString() });
-
-});
-
-router.get('/post/:id', async (req, res) => {
-
-    let post = await board.getPost(req.params.id);
-
-    res.render('show_post', { post });
-});
-
-router.get('/post/:id/delete', async (req, res) => {
-
-    let post = await board.deletePost(req.params.id);
-
-    if (post && post.imageFilename) {
-        await fs.rm(board.UPLOADS_FOLDER + '/' + post.imageFilename);
+    if (!destination.name) {
+        errors.push('El nombre del destino es obligatorio.');
+    } else {
+        if (!/^\p{Lu}/u.test(destination.name)) {
+            errors.push('El nombre debe comenzar con una letra mayúscula.');
+        }
+        if (await board.getPostByName(destination.name)) {
+            errors.push('Ya existe un destino con ese nombre.');
+        }
     }
 
-    res.render('deleted_post');
+    if (!destination.country) errors.push('El país es obligatorio.');
+    if (!destination.continent) errors.push('El continente es obligatorio.');
+    if (!destination.priceRange) {
+        errors.push('Selecciona un rango de precio válido.');
+    }
+    if (!destination.recommendedSeason) {
+        errors.push('Selecciona una época recomendada válida.');
+    }
+    if (destination.description.length < 3 || destination.description.length > 500) {
+        errors.push('La descripción debe tener entre 3 y 500 caracteres.');
+    }
+    if (!req.file) errors.push('Selecciona una imagen.');
+
+    if (errors.length) {
+        if (req.file) await fs.rm(req.file.path, { force: true });
+        return renderNotice(
+            res,
+            400,
+            'No se pudo crear el destino',
+            errors.join(' '),
+            '/new_element.html',
+            'Volver al formulario'
+        );
+    }
+
+    destination.imageFilename = req.file.filename;
+    destination.imageUrl = `/uploads/${req.file.filename}`;
+    destination.activities = [];
+    const result = await board.addPost(destination);
+
+    res.redirect(303, `/destinations/${result.insertedId.toString()}/created`);
+};
+
+router.post('/destinations/new', upload.single('image'), createDestination);
+router.post('/post/new', upload.single('image'), createDestination);
+
+router.get('/destinations/:id/created', async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+    }
+
+    const destination = await board.getPost(req.params.id);
+    if (!destination) {
+        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+    }
+
+    res.render('notice', {
+        title: 'Destino creado correctamente',
+        message: `${destination.name} se ha añadido a SuperTrip.`,
+        actionUrl: '/',
+        actionLabel: 'Volver al inicio',
+        detailUrl: `/destinations/${destination._id}`,
+        detailLabel: 'Ver destino'
+    });
+});
+
+router.get('/destinations/:id', renderDestinationDetail);
+router.get('/post/:id', renderDestinationDetail);
+
+router.get('/post/:id/delete', async (req, res) => {
+    const destination = await board.deletePost(req.params.id);
+
+    if (destination && destination.imageFilename) {
+        await fs.rm(board.UPLOADS_FOLDER + '/' + destination.imageFilename);
+    }
+
+    renderNotice(res, 200, 'Destino eliminado', 'El destino se ha eliminado.', '/', 'Volver al inicio');
 });
 
 router.get('/post/:id/image', async (req, res) => {
-
-    let post = await board.getPost(req.params.id);
-
-    res.download(board.UPLOADS_FOLDER + '/' + post.imageFilename);
-
+    const destination = await board.getPost(req.params.id);
+    res.download(board.UPLOADS_FOLDER + '/' + destination.imageFilename);
 });
-

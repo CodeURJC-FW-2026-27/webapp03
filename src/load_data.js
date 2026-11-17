@@ -8,15 +8,13 @@ let dataFile = 'data.json';
 
 const dataString = await fs.readFile(DATA_FOLDER + '/' + dataFile, 'utf8');
 
-const posts = JSON.parse(dataString);
+const destinations = JSON.parse(dataString);
 
-await board.deletePosts();
-for(let post of posts){
-    await board.addPost(post);
+if (await board.countPosts() === 0) {
+    for (const destination of destinations) {
+        await board.addPost(destination);
+    }
+    console.log('Demo destinations loaded');
 }
 
-await fs.rm(UPLOADS_FOLDER, { recursive: true, force: true });
-await fs.mkdir(UPLOADS_FOLDER);
-await fs.cp(DATA_FOLDER + '/images', UPLOADS_FOLDER, { recursive: true });
-
-console.log('Demo data loaded');
+await fs.mkdir(UPLOADS_FOLDER, { recursive: true });

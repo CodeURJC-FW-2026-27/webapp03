@@ -38,22 +38,7 @@
 
 <body class="contact-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        
-        
-        <img src="assets/img/logo_new.png" alt="Logo" class="logo-img">
-        <h1 class="sitename">SuperTrip</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <i class="mobile-nav-toggle d-none bi bi-list"></i>
-      </nav>
-
-    </div>
-  </header>
+  {{> site_header}}
 
   <main class="main">
 
@@ -85,25 +70,25 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <!-- new element form -->
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+        <form action="/destinations/new" method="post" enctype="multipart/form-data" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
           <div class="row gy-4">
 
             <!--New element features-->
 
             <div class="col-md-6">
-              <input type="text" name="element-name" class="form-control" placeholder="Ciudad de destino" required="">
+              <input type="text" name="name" class="form-control" placeholder="Ciudad de destino" pattern="[A-ZÁÉÍÓÚÜÑ].*" title="El nombre debe comenzar con mayúscula" required>
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="element-country" class="form-control" placeholder="País" required="">
+              <input type="text" name="country" class="form-control" placeholder="País" required>
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="element-continent" class="form-control" placeholder="Continente" required="">
+              <input type="text" name="continent" class="form-control" placeholder="Continente" required>
             </div>
 
             <div class="col-md-6">
-              <select name="element-price-range" class="form-select" required="">
+              <select name="priceRange" class="form-select" required>
                 <option value="" disabled selected>Selecciona un rango de precio</option>
                 <option value="economical">ECONÓMICO</option>
                 <option value="medium">MEDIO</option>
@@ -113,7 +98,7 @@
             </div>
 
             <div class="col-md-6">
-              <select name="element-recomended-season" class="form-select" required="">
+              <select name="recommendedSeason" class="form-select" required>
                 <option value="" disabled selected>Selecciona la época recomendada</option>
                 <option value="winter">INVIERNO</option>
                 <option value="spring">PRIMAVERA</option>
@@ -123,18 +108,18 @@
             </div>
 
             <div class="col-md-12">
-              <textarea class="form-control" name="element-description" rows="6" placeholder="Descripción del destino" required=""></textarea>
+              <textarea class="form-control" name="description" rows="6" minlength="3" maxlength="500" placeholder="Descripción del destino (3-500 caracteres)" required></textarea>
             </div>
 
             <div class="col-md-12">
-              <input type="text" class="form-control" name="element-image-url" placeholder="URL de la imagen del destino" required="">
+              <input type="file" class="form-control" name="image" accept="image/*" required>
             </div>
             
             <!--/New element features-->
 
             <div class="col-md-12 text-center">
-              <button type="button" class="btn btn-success">Guardar</button>
-              <button type="button" class="btn btn-danger" onclick="window.location.href='index.html'">Cancelar</button>
+              <input type="submit" class="btn btn-success" value="Guardar">
+              <a href="/" class="btn btn-danger">Cancelar</a>
             </div>
 
           </div>
@@ -147,19 +132,7 @@
 
   </main>
 
-  <footer id="footer" class="footer">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">SuperTrip</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="credits">
-
-        Diseñado por Salvador Barquilla, Sergio Abueitah y Adrián Varea
-      </div>
-    </div>
-
-  </footer>
+  {{> site_footer}}
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -171,7 +144,6 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>

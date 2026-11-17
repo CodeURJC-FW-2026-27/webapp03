@@ -31,6 +31,19 @@ export async function getPosts(){
     return await posts.find().toArray();
 }
 
+export async function countPosts(){
+
+    return await posts.countDocuments();
+}
+
+export async function getPostByName(name) {
+
+    return await posts.findOne(
+        { name },
+        { collation: { locale: 'es', strength: 2 } }
+    );
+}
+
 export async function getPost(id){
 
     return await posts.findOne({ _id: new ObjectId(id) });

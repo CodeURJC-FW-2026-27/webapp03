@@ -1528,6 +1528,7 @@ section,
 .contact .php-email-form input[type=email],
 .contact .php-email-form input[type=number],
 .contact .php-email-form input[type=url],
+.contact .php-email-form input[type=file],
 .contact .php-email-form select,
 .contact .php-email-form textarea {
   font-size: 14px;
@@ -1543,9 +1544,46 @@ section,
 .contact .php-email-form input[type=email]:focus,
 .contact .php-email-form input[type=number]:focus,
 .contact .php-email-form input[type=url]:focus,
+.contact .php-email-form input[type=file]:focus,
 .contact .php-email-form select:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
+}
+
+.contact .php-email-form input:autofill,
+.contact .php-email-form input:-webkit-autofill,
+.contact .php-email-form input:autofill:hover,
+.contact .php-email-form input:-webkit-autofill:hover,
+.contact .php-email-form input:autofill:focus,
+.contact .php-email-form input:-webkit-autofill:focus,
+.contact .php-email-form input:autofill:active,
+.contact .php-email-form input:-webkit-autofill:active {
+  color: var(--default-color) !important;
+  background-color: var(--surface-color) !important;
+  -webkit-text-fill-color: var(--default-color) !important;
+  -webkit-box-shadow: 0 0 0 1000px var(--surface-color) inset !important;
+  box-shadow: 0 0 0 1000px var(--surface-color) inset !important;
+  caret-color: var(--default-color) !important;
+}
+
+.contact .php-email-form input[name="name"]:focus,
+.contact .php-email-form input[name="country"]:focus {
+  color: var(--default-color) !important;
+  background-color: var(--surface-color) !important;
+  -webkit-text-fill-color: var(--default-color) !important;
+  -webkit-box-shadow: 0 0 0 1000px var(--surface-color) inset !important;
+  box-shadow: 0 0 0 1000px var(--surface-color) inset !important;
+}
+
+.contact .php-email-form input[type=file]::file-selector-button,
+.contact .php-email-form input[type=file]::-webkit-file-upload-button {
+  color: var(--default-color);
+  background-color: var(--surface-color);
+}
+
+.contact .php-email-form input[type=file]:hover:not(:disabled):not([readonly])::file-selector-button,
+.contact .php-email-form input[type=file]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+  background-color: var(--surface-color);
 }
 
 .contact .php-email-form input[type=text]::placeholder,
