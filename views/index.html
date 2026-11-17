@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>SuperTrip</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo_new.png" rel="icon">
+  <link href="assets/img/logo_new.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Cardo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: PhotoFolio
+  * Template URL: https://bootstrapmade.com/photofolio-bootstrap-photography-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header index-header sticky-top">
+    <div class="container-fluid index-header-content">
+
+      <div class="index-header-top">
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+          
+          <img src="assets/img/logo_new.png" alt="Logo de SuperTrip" class="logo-image">
+          <h1 class="sitename">SuperTrip</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <i class="mobile-nav-toggle d-none bi bi-list"></i>
+        </nav>
+      </div>
+
+      <nav class="destination-categories" aria-label="Categorías por rango de precio">
+        <span class="destination-categories-label">Rango de precio</span>
+        <ul>
+          <li><span>Económico</span></li>
+          <li><span>Medio</span></li>
+          <li><span>Alto</span></li>
+          <li><span>Lujo</span></li>
+        </ul>
+      </nav>
+
+      <div class="destination-search" role="search">
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <input type="search" aria-label="Buscar destino por nombre" placeholder="Buscar destino...">
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center" data-aos="fade-up" data-aos-delay="100">
+            <h2>Descubre tu próximo destino</h2>
+            <p>En SuperTrip seleccionamos los rincones más fascinantes del mundo para que planifiques tu viaje sin complicaciones. Explora experiencias únicas, encuentra la época ideal para viajar y empieza a diseñar recuerdos inolvidables hoy mismo.</p>
+            
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    
+    <section id="Places" class="gallery section">
+
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="destination-actions">
+          <a href="new_element.html" class="btn btn-success create-destination-btn">
+            <i class="bi bi-plus-lg" aria-hidden="true"></i>
+            Crear nuevo elemento
+          </a>
+        </div>
+
+        <div class="row gy-4 justify-content-center">
+          {{#destinations}}
+          <div class="col-xl-4 col-lg-6 col-md-12">
+            <article class="gallery-item destination-card h-100">
+              <a href="detail_page.html" class="destination-image">
+                <img src="{{imageUrl}}" class="img-fluid" alt="Destino {{name}}">
+              </a>
+              <div class="destination-info">
+                <h2>{{name}}</h2>
+                <p class="destination-price mb-0">Rango de precio <span>{{priceRange}}</span></p>
+              </div>
+            </article>
+          </div>
+          {{/destinations}}
+          {{^destinations}}
+          <p class="text-center">No hay destinos disponibles.</p>
+          {{/destinations}}
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">SuperTrip</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="credits">
+
+        Diseñado por Salvador Barquilla, Sergio Abueitah y Adrián Varea
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="line"></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
