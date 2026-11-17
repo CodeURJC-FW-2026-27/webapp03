@@ -1,7 +1,6 @@
 import fs from 'node:fs/promises';
 import * as board from './board.js';
 
-const UPLOADS_FOLDER = './uploads';
 const DATA_FOLDER = './data';
 
 let dataFile = 'data.json';
@@ -17,4 +16,6 @@ if (await board.countPosts() === 0) {
     console.log('Demo destinations loaded');
 }
 
-await fs.mkdir(UPLOADS_FOLDER, { recursive: true });
+await fs.mkdir(board.UPLOADS_FOLDER, { recursive: true });
+await fs.mkdir(board.DATA_IMAGES_FOLDER, { recursive: true });
+await fs.cp(board.DATA_IMAGES_FOLDER, board.UPLOADS_FOLDER, { recursive: true });

@@ -10,6 +10,7 @@ const db = client.db('board');
 const posts = db.collection('posts');
 
 export const UPLOADS_FOLDER = './uploads';
+export const DATA_IMAGES_FOLDER = './data/images';
 
 export async function addPost(post) {
 

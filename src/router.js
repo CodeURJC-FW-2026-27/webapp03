@@ -28,6 +28,9 @@ const formatValue = (value) => {
 
 const formatDestination = (destination) => ({
     ...destination,
+    imageUrl: destination.imageFilename
+        ? `/post/${destination._id}/image`
+        : destination.imageUrl,
     priceRange: formatValue(destination.priceRange),
     recommendedSeason: formatValue(destination.recommendedSeason)
 });
@@ -106,8 +109,13 @@ const createDestination = async (req, res) => {
         );
     }
 
+    destination._id = new ObjectId();
+    await fs.copyFile(
+        req.file.path,
+        board.DATA_IMAGES_FOLDER + '/' + req.file.filename
+    );
     destination.imageFilename = req.file.filename;
-    destination.imageUrl = `/uploads/${req.file.filename}`;
+    destination.imageUrl = `/post/${destination._id}/image`;
     destination.activities = [];
     const result = await board.addPost(destination);
 
@@ -144,13 +152,22 @@ router.get('/post/:id/delete', async (req, res) => {
     const destination = await board.deletePost(req.params.id);
 
     if (destination && destination.imageFilename) {
-        await fs.rm(board.UPLOADS_FOLDER + '/' + destination.imageFilename);
+        await fs.rm(board.UPLOADS_FOLDER + '/' + destination.imageFilename, { force: true });
+        await fs.rm(board.DATA_IMAGES_FOLDER + '/' + destination.imageFilename, { force: true });
     }
 
     renderNotice(res, 200, 'Destino eliminado', 'El destino se ha eliminado.', '/', 'Volver al inicio');
 });
 
 router.get('/post/:id/image', async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        return res.sendStatus(404);
+    }
+
     const destination = await board.getPost(req.params.id);
+    if (!destination || !destination.imageFilename) {
+        return res.sendStatus(404);
+    }
+
     res.download(board.UPLOADS_FOLDER + '/' + destination.imageFilename);
 });
