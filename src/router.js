@@ -138,6 +138,26 @@ router.get('/destinations/:id/created', async (req, res) => {
 });
 
 router.get('/destinations/:id', renderDestinationDetail);
+router.get('/destinations/:id/edit', async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+    }
+
+    const destination = await board.getPost(req.params.id);
+
+    if (!destination) {
+        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+    }
+
+    res.render('new_element', {
+    destination,
+    isEconomical: formatValue(destination.priceRange) === 'Económico',
+    isMedium: formatValue(destination.priceRange) === 'Medio',
+    isHigh: formatValue(destination.priceRange) === 'Alto',
+    isLuxury: formatValue(destination.priceRange) === 'Lujo'
+});
+});
+
 router.get('/post/:id', renderDestinationDetail);
 
 router.get('/post/:id/delete', async (req, res) => {
