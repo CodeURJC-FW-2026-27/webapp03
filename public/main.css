@@ -23,8 +23,26 @@
   --default-color: #fafafa; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #27a776; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color-rgb: 39, 167, 118;
+  --accent-hover-color: color-mix(in srgb, var(--accent-color) 90%, white 10%);
   --surface-color: #1a1a1a; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+.btn-success {
+  --bs-btn-color: var(--contrast-color);
+  --bs-btn-bg: var(--accent-color);
+  --bs-btn-border-color: var(--accent-color);
+  --bs-btn-hover-color: var(--contrast-color);
+  --bs-btn-hover-bg: var(--accent-hover-color);
+  --bs-btn-hover-border-color: var(--accent-hover-color);
+  --bs-btn-focus-shadow-rgb: var(--accent-color-rgb);
+  --bs-btn-active-color: var(--contrast-color);
+  --bs-btn-active-bg: var(--accent-hover-color);
+  --bs-btn-active-border-color: var(--accent-hover-color);
+  --bs-btn-disabled-color: var(--contrast-color);
+  --bs-btn-disabled-bg: var(--accent-color);
+  --bs-btn-disabled-border-color: var(--accent-color);
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -213,13 +231,29 @@ h6 {
   list-style: none;
 }
 
-.destination-categories li span {
+.destination-categories li a {
   display: inline-block;
   padding: 0.4rem 0.8rem;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 78%);
   border-radius: 50rem;
   color: var(--default-color);
   font-size: 0.8rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.destination-categories li a.active {
+  border-color: var(--accent-color);
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  text-decoration: none;
+}
+
+.destination-categories li a:hover,
+.destination-categories li a:focus-visible {
+  border-color: var(--accent-hover-color);
+  background: var(--accent-hover-color);
+  color: var(--contrast-color);
 }
 
 .destination-search {
@@ -231,7 +265,7 @@ h6 {
   margin: 0 auto;
   padding: 0.55rem 0.85rem;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  border-radius: 4px;
+  border-radius: 8px;
   background: var(--surface-color);
   color: color-mix(in srgb, var(--default-color), transparent 35%);
   transition: border-color 0.3s ease;
@@ -251,6 +285,24 @@ h6 {
   color: var(--default-color);
   font: inherit;
   font-size: 0.9rem;
+}
+
+.destination-search input:focus {
+  background-color: transparent;
+}
+
+.destination-search input:-webkit-autofill,
+.destination-search input:-webkit-autofill:hover,
+.destination-search input:-webkit-autofill:focus {
+  background-color: transparent;
+  -webkit-box-shadow: 0 0 0 1000px var(--surface-color) inset;
+  box-shadow: 0 0 0 1000px var(--surface-color) inset;
+  -webkit-text-fill-color: var(--default-color);
+}
+
+.destination-search input:autofill {
+  background-color: var(--surface-color);
+  color: var(--default-color);
 }
 
 .destination-search input::placeholder {
@@ -724,7 +776,7 @@ h6 {
 }
 
 .scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background-color: var(--accent-hover-color);
 }
 
 .scroll-top.active {
@@ -776,7 +828,7 @@ h6 {
 }
 
 .page-title .heading .cta-btn:hover {
-  background-color: color-mix(in srgb, var(--accent-color) 90%, white 10%);
+  background-color: var(--accent-hover-color);
 }
 
 .page-title nav {
@@ -924,7 +976,7 @@ section,
 }
 
 .hero .btn-get-started:hover {
-  background-color: color-mix(in srgb, var(--accent-color) 90%, white 10%);
+  background-color: var(--accent-hover-color);
 }
 
 /*--------------------------------------------------------------
@@ -1057,6 +1109,35 @@ section,
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 3rem auto 0;
+}
+
+.pagination-container a,
+.pagination-container .active {
+  display: inline-block;
+  padding: 0.25rem 0.1rem;
+  color: var(--default-color);
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.pagination-container .active {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.pagination-container a:hover,
+.pagination-container a:focus-visible {
+  color: var(--accent-color);
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1316,7 +1397,7 @@ section,
 }
 
 .gallery-details .portfolio-info .btn-visit:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: var(--accent-hover-color);
 }
 
 .gallery-details .portfolio-description h2 {
@@ -1620,7 +1701,7 @@ section,
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background-color: color-mix(in srgb, var(--accent-color) 90%, white 10%);
+  background-color: var(--accent-hover-color);
 }
 
 .contact .php-email-form button[type=cancel] {
