@@ -9,6 +9,28 @@ const router = express.Router();
 export default router;
 
 const upload = multer({ dest: board.UPLOADS_FOLDER });
+const displayValues = {
+    economical: 'Económico',
+    medium: 'Medio',
+    high: 'Alto',
+    luxury: 'Lujo',
+    winter: 'Invierno',
+    spring: 'Primavera',
+    summer: 'Verano',
+    autumn: 'Otoño'
+};
+
+const formatValue = (value) => {
+    const normalized = String(value || '').toLocaleLowerCase('es');
+    if (Object.hasOwn(displayValues, normalized)) return displayValues[normalized];
+    return normalized.charAt(0).toLocaleUpperCase('es') + normalized.slice(1);
+};
+
+const formatDestination = (destination) => ({
+    ...destination,
+    priceRange: formatValue(destination.priceRange),
+    recommendedSeason: formatValue(destination.recommendedSeason)
+});
 
 const renderNotice = (res, status, title, message, actionUrl, actionLabel) => {
     res.status(status).render('notice', { title, message, actionUrl, actionLabel });
@@ -24,12 +46,12 @@ const renderDestinationDetail = async (req, res) => {
         return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
 
-    res.render('detail_page', { destination });
+    res.render('detail_page', { destination: formatDestination(destination) });
 };
 
 const renderIndex = async (_req, res) => {
     const destinations = await board.getPosts();
-    res.render('index', { destinations });
+    res.render('index', { destinations: destinations.map(formatDestination) });
 };
 
 router.get('/', renderIndex);
