@@ -56,17 +56,30 @@
       <nav class="destination-categories" aria-label="Categorías por rango de precio">
         <span class="destination-categories-label">Rango de precio</span>
         <ul>
-          <li><span>Económico</span></li>
-          <li><span>Medio</span></li>
-          <li><span>Alto</span></li>
-          <li><span>Lujo</span></li>
+          {{#categories}}
+          <li>
+            <a href="{{url}}" class="destination-category{{#active}} active{{/active}}" {{#active}}aria-current="page"{{/active}}>
+              {{label}}
+            </a>
+          </li>
+          {{/categories}}
         </ul>
       </nav>
 
-      <div class="destination-search" role="search">
-        <i class="bi bi-search" aria-hidden="true"></i>
-        <input type="search" aria-label="Buscar destino por nombre" placeholder="Buscar destino...">
-      </div>
+<form action="/" method="GET" class="destination-search" role="search">
+    <i class="bi bi-search" aria-hidden="true"></i>
+    <input
+        type="search"
+        name="search"
+        aria-label="Search destination by name"
+        placeholder="Buscar destino..." 
+        value="{{search}}"
+    >
+    {{#priceRange}}
+    <input type="hidden" name="priceRange" value="{{priceRange}}">
+    {{/priceRange}}
+    <button type="submit" class="btn btn-success">Buscar</button>
+</form>
 
     </div>
   </header>
@@ -119,6 +132,35 @@
           {{/destinations}}
         </div>
 
+        <!-- Pages -->
+
+        {{#totalPages}}
+        <div class="pagination-container">
+
+          <!-- Página anterior -->
+      
+          {{#hasPrevious}}
+          <a href="/?page={{previousPage}}"> Anterior </a>
+          {{/hasPrevious}}
+
+          <!-- Números de página -->
+          {{#pages}}
+            {{#active}}
+              <span class="active">[{{number}}]</span>
+            {{/active}}
+            {{^active}}
+              <a href="/?page={{numero}}">{{number}}</a>
+            {{/active}}
+          {{/pages}}
+
+          <!-- Next Page -->
+          {{#hasNext}}
+          <a href="/?page={{nextPage}}"> Siguiente </a>
+          {{/hasNext}}
+
+        </div>
+        {{/totalPages}}      
+      
       </div>
 
     </section>

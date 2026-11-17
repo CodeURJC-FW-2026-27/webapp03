@@ -20,6 +20,14 @@ const displayValues = {
     autumn: 'Otoño'
 };
 
+const priceRangeOptions = [
+    { value: '', label: 'Todos' },
+    { value: 'economical', label: 'Económico' },
+    { value: 'medium', label: 'Medio' },
+    { value: 'high', label: 'Alto' },
+    { value: 'luxury', label: 'Lujo' }
+];
+
 const formatValue = (value) => {
     const normalized = String(value || '').toLocaleLowerCase('es');
     if (Object.hasOwn(displayValues, normalized)) return displayValues[normalized];
@@ -52,9 +60,57 @@ const renderDestinationDetail = async (req, res) => {
     res.render('detail_page', { destination: formatDestination(destination) });
 };
 
-const renderIndex = async (_req, res) => {
-    const destinations = await board.getPosts();
-    res.render('index', { destinations: destinations.map(formatDestination) });
+const renderIndex = async (req, res) => {
+    const currentPage = Math.max(1, parseInt(req.query.page) || 1);
+    const search = String(req.query.search || '').trim();
+    const priceRange = typeof req.query.priceRange === 'string'
+        && priceRangeOptions.some((option) => option.value === req.query.priceRange && option.value)
+        ? req.query.priceRange
+        : '';
+    const limit = 6;
+    const totalDestinations = await board.countPosts(search, priceRange);
+    const totalPages = Math.ceil(totalDestinations / limit);
+    const destinations = await board.getPosts(currentPage, limit, search, priceRange);
+    const filterParams = new URLSearchParams();
+    if (search) filterParams.set('search', search);
+    if (priceRange) filterParams.set('priceRange', priceRange);
+    const filterQuery = filterParams.toString();
+    const paginationQuery = filterQuery ? `&${filterQuery}` : '';
+    const categories = priceRangeOptions.map((option) => {
+        const categoryParams = new URLSearchParams();
+        if (option.value) categoryParams.set('priceRange', option.value);
+        if (search) categoryParams.set('search', search);
+        const categoryQuery = categoryParams.toString();
+
+        return {
+            ...option,
+            active: option.value === priceRange,
+            url: categoryQuery ? `/?${categoryQuery}` : '/'
+        };
+    });
+
+    const pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pages.push({
+            number: i,
+            numero: `${i}${paginationQuery}`,
+            active: i === currentPage
+        });
+    }
+
+    res.render('index', {
+        destinations: destinations.map(formatDestination),
+        currentPage,
+        totalPages,
+        pages,
+        categories,
+        priceRange,
+        search,
+        hasPrevious: currentPage > 1,
+        hasNext: currentPage < totalPages,
+        previousPage: `${currentPage - 1}${paginationQuery}`,
+        nextPage: `${currentPage + 1}${paginationQuery}`
+    });
 };
 
 router.get('/', renderIndex);

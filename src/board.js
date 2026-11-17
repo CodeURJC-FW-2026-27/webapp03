@@ -12,6 +12,28 @@ const posts = db.collection('posts');
 export const UPLOADS_FOLDER = './uploads';
 export const DATA_IMAGES_FOLDER = './data/images';
 
+const priceRangePatterns = {
+    economical: /^(?:economical|económico)$/i,
+    medium: /^(?:medium|medio)$/i,
+    high: /^(?:high|alto)$/i,
+    luxury: /^(?:luxury|lujo)$/i
+};
+
+const buildSearchFilter = (search, priceRange) => {
+    const filter = {};
+
+    if (search) {
+        const escapedSearch = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        filter.name = { $regex: escapedSearch, $options: 'i' };
+    }
+
+    if (priceRangePatterns[priceRange]) {
+        filter.priceRange = priceRangePatterns[priceRange];
+    }
+
+    return filter;
+};
+
 export async function addPost(post) {
 
     return await posts.insertOne(post);
@@ -27,14 +49,19 @@ export async function deletePosts(){
     return await posts.deleteMany();
 }
 
-export async function getPosts(){
+export async function getPosts(page, limit, search = '', priceRange = '') {
 
-    return await posts.find().toArray();
+    const cursor = posts.find(buildSearchFilter(search, priceRange));
+    if (Number.isInteger(page) && Number.isInteger(limit)) {
+        cursor.skip((page - 1) * limit).limit(limit);
+    }
+
+    return await cursor.toArray();
 }
 
-export async function countPosts(){
+export async function countPosts(search = '', priceRange = '') {
 
-    return await posts.countDocuments();
+    return await posts.countDocuments(buildSearchFilter(search, priceRange));
 }
 
 export async function getPostByName(name) {
