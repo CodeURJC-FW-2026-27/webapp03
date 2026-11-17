@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error | SuperTrip</title>
+
+    <link href="/assets/img/logo_new.png" rel="icon">
+    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+    {{> site_header}}
+
+    <main class="main">
+        <section class="container text-center py-5">
+
+            <i class="bi bi-exclamation-triangle text-danger"
+               style="font-size: 4rem;"></i>
+
+            <h1 class="mt-3">{{title}}</h1>
+
+            <p class="mt-3">{{message}}</p>
+
+            <a href="{{actionUrl}}" class="btn btn-success mt-3">
+                {{actionLabel}}
+            </a>
+
+        </section>
+    </main>
+
+    {{> site_footer}}
+
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+</html>

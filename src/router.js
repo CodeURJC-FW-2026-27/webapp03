@@ -43,8 +43,13 @@ const formatDestination = (destination) => ({
     recommendedSeason: formatValue(destination.recommendedSeason)
 });
 
-const renderNotice = (res, status, title, message, actionUrl, actionLabel) => {
-    res.status(status).render('notice', { title, message, actionUrl, actionLabel });
+const renderError = (res, status, title, message, actionUrl, actionLabel) => {
+    res.status(status).render('partials/error', {
+        title,
+        message,
+        actionUrl,
+        actionLabel
+    });
 };
 
 const renderDestinationDetail = async (req, res) => {
@@ -155,7 +160,7 @@ const createDestination = async (req, res) => {
 
     if (errors.length) {
         if (req.file) await fs.rm(req.file.path, { force: true });
-        return renderNotice(
+        return renderError(
             res,
             400,
             'No se pudo crear el destino',
