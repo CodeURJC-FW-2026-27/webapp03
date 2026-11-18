@@ -83,11 +83,11 @@
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="country" value="{{destination.country}}" class="form-control" placeholder="País" required>
+              <input type="text" name="country" value="{{destination.country}}" class="form-control" placeholder="País" pattern="\p{Lu}.*" title="Debe comenzar con mayúscula y tener entre 3 y 50 caracteres" minlength="3" maxlength="50" required>
             </div>
 
             <div class="col-md-6">
-              <input type="text" name="continent" value="{{destination.continent}}" class="form-control" placeholder="Continente" required>
+              <input type="text" name="continent" value="{{destination.continent}}" class="form-control" placeholder="Continente" pattern="\p{Lu}.*" title="Debe comenzar con mayúscula y tener entre 3 y 50 caracteres" minlength="3" maxlength="50" required>
             </div>
 
             <div class="col-md-6">

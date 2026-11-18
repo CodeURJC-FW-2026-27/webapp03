@@ -171,8 +171,27 @@ const createDestination = async (req, res) => {
         }
         }
 
-    if (!destination.country) errors.push('El país es obligatorio.');
-    if (!destination.continent) errors.push('El continente es obligatorio.');
+    if (!destination.country) {
+        errors.push('El país es obligatorio.');
+    } else {
+        if (!/^\p{Lu}/u.test(destination.country)) {
+            errors.push('El país debe comenzar con una letra mayúscula.');
+        }
+        if (destination.country.length < 3 || destination.country.length > 50) {
+            errors.push('El país debe tener entre 3 y 50 caracteres.');
+        }
+    }
+
+    if (!destination.continent) {
+        errors.push('El continente es obligatorio.');
+    } else {
+        if (!/^\p{Lu}/u.test(destination.continent)) {
+            errors.push('El continente debe comenzar con una letra mayúscula.');
+        }
+        if (destination.continent.length < 3 || destination.continent.length > 50) {
+            errors.push('El continente debe tener entre 3 y 50 caracteres.');
+        }
+    }
     const validPriceRanges = ['economical', 'medium', 'high', 'luxury'];
     const validSeasons = ['winter', 'spring', 'summer', 'autumn'];
 
