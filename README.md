@@ -189,7 +189,7 @@ Me he ocupado de la configuración inicial del proyecto, copiando el código de 
 
 ### 👤 Salvador Barquilla Cedillo (`@SalvaB14`)
 
-**Tareas realizadas:** [Completar]
+**Tareas realizadas:** [Principalmente he modificado el diseño y funcionalidad de la página principal, además de algun que otro mínimo detalle]
 
 **5 commits más significativos**
 1. [Diseño y funcionalidad de la página principal](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/88698c829893b9706cd6787c088ca3bb4a08a14f)
