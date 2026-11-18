@@ -180,29 +180,26 @@ Completar las tareas y sustituir los ejemplos por enlaces a los commits y ficher
 5. [Descripción del commit](URL_DEL_COMMIT_5)
 
 **5 ficheros principales**
-1. [Fichero 1](RUTA_DEL_FICHERO_1)
-2. [Fichero 2](RUTA_DEL_FICHERO_2)
-3. [Fichero 3](RUTA_DEL_FICHERO_3)
-4. [Fichero 4](RUTA_DEL_FICHERO_4)
-5. [Fichero 5](RUTA_DEL_FICHERO_5)
+1. [`Fichero 1`](RUTA_DEL_FICHERO_1)
+2. [`Fichero 2`](RUTA_DEL_FICHERO_2)
+3. [`Fichero 3`](RUTA_DEL_FICHERO_3)
+4. [`Fichero 4`](RUTA_DEL_FICHERO_4)
+5. [`Fichero 5`](RUTA_DEL_FICHERO_5)
 
 ### 👤 Salvador Barquilla Cedillo (`@SalvaB14`)
 
 **Tareas realizadas:** [Completar]
 
 **5 commits más significativos**
-1. [Descripción del commit](URL_DEL_COMMIT_1)
-2. [Descripción del commit](URL_DEL_COMMIT_2)
-3. [Descripción del commit](URL_DEL_COMMIT_3)
-4. [Descripción del commit](URL_DEL_COMMIT_4)
-5. [Descripción del commit](URL_DEL_COMMIT_5)
+1. [Diseño y funcionalidad de la página principal](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/88698c829893b9706cd6787c088ca3bb4a08a14f)
+2. [Página de error (no es la misma que la definitiva) y algún ajuste de otras páginas y ficheros](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/754450657d2f4215d91bb2079a6c8ec6eccc98ee)
 
 **5 ficheros principales**
-1. [Fichero 1](RUTA_DEL_FICHERO_1)
-2. [Fichero 2](RUTA_DEL_FICHERO_2)
-3. [Fichero 3](RUTA_DEL_FICHERO_3)
-4. [Fichero 4](RUTA_DEL_FICHERO_4)
-5. [Fichero 5](RUTA_DEL_FICHERO_5)
+1. [`index.html`](RUTA_DEL_FICHERO_1)
+3. [`router.js`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/src/router.js)
+4. [`travel.js`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/src/travel.js)
+2. [`main.css`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/public/main.css)
+5. [`.gitignore`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/.gitignore)
 
 ### 👤 Sergio Abueitah Cantero (`@SergioAbueitah`)
 
@@ -216,8 +213,8 @@ Completar las tareas y sustituir los ejemplos por enlaces a los commits y ficher
 5. [Descripción del commit](URL_DEL_COMMIT_5)
 
 **5 ficheros principales**
-1. [Fichero 1](RUTA_DEL_FICHERO_1)
-2. [Fichero 2](RUTA_DEL_FICHERO_2)
-3. [Fichero 3](RUTA_DEL_FICHERO_3)
-4. [Fichero 4](RUTA_DEL_FICHERO_4)
-5. [Fichero 5](RUTA_DEL_FICHERO_5)
+1. [`Fichero 1`](RUTA_DEL_FICHERO_1)
+2. [`Fichero 2`](RUTA_DEL_FICHERO_2)
+3. [`Fichero 3`](RUTA_DEL_FICHERO_3)
+4. [`Fichero 4`](RUTA_DEL_FICHERO_4)
+5. [`Fichero 5`](RUTA_DEL_FICHERO_5)
