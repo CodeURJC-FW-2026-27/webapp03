@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises';
-import * as board from './board.js';
+import * as travel from './travel.js';
 
 const DATA_FOLDER = './data';
 
@@ -9,14 +9,14 @@ const dataString = await fs.readFile(DATA_FOLDER + '/' + dataFile, 'utf8');
 
 const destinations = JSON.parse(dataString);
 
-if (await board.countPosts() === 0) {
+if (await travel.countDestinations() === 0) {
     for (const destination of destinations) {
-        await board.addPost(destination);
+        await travel.addDestination(destination);
     }
     console.log('Demo destinations loaded');
 }
-await board.ensureActivityIds();
+await travel.ensureActivityIds();
 
-await fs.mkdir(board.UPLOADS_FOLDER, { recursive: true });
-await fs.mkdir(board.DATA_IMAGES_FOLDER, { recursive: true });
-await fs.cp(board.DATA_IMAGES_FOLDER, board.UPLOADS_FOLDER, { recursive: true });
+await fs.mkdir(travel.UPLOADS_FOLDER, { recursive: true });
+await fs.mkdir(travel.DATA_IMAGES_FOLDER, { recursive: true });
+await fs.cp(travel.DATA_IMAGES_FOLDER, travel.UPLOADS_FOLDER, { recursive: true });

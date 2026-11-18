@@ -20,9 +20,12 @@
         <div class="container">
           <div class="row justify-content-center text-center">
             <div class="col-lg-8">
+              {{#isError}}
+              <i class="bi bi-exclamation-triangle text-danger" style="font-size: 4rem;" aria-hidden="true"></i>
+              {{/isError}}
               <h1>{{title}}</h1>
               <p class="mb-4">{{message}}</p>
-              <a href="{{actionUrl}}" class="btn btn-dark">{{actionLabel}}</a>
+              <a href="{{actionUrl}}" class="btn {{#isError}}btn-success{{/isError}}{{^isError}}btn-dark{{/isError}}">{{actionLabel}}</a>
               {{#detailUrl}}
               <a href="{{detailUrl}}" class="btn btn-success">{{detailLabel}}</a>
               {{/detailUrl}}
@@ -33,6 +36,7 @@
     </section>
   </main>
   {{> site_footer}}
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/vendor/aos/aos.js"></script>
   <script src="/assets/js/main.js"></script>
 </body>

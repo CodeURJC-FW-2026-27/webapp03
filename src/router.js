@@ -3,12 +3,12 @@ import multer from 'multer';
 import fs from 'node:fs/promises';
 import { ObjectId } from 'mongodb';
 
-import * as board from './board.js';
+import * as travel from './travel.js';
 
 const router = express.Router();
 export default router;
 
-const upload = multer({ dest: board.UPLOADS_FOLDER });
+const upload = multer({ dest: travel.UPLOADS_FOLDER });
 const displayValues = {
     economical: 'Económico',
     medium: 'Medio',
@@ -48,12 +48,14 @@ const formatDestination = (destination) => ({
     }))
 });
 
-const renderError = (res, status, title, message, actionUrl, actionLabel) => {
-    res.status(status).render('partials/error', {
+const renderNotice = (res, status, title, message, actionUrl, actionLabel, extra = {}) => {
+    return res.status(status).render('notice', {
         title,
         message,
         actionUrl,
-        actionLabel
+        actionLabel,
+        isError: status >= 400,
+        ...extra
     });
 };
 
@@ -62,7 +64,7 @@ const renderDestinationDetail = async (req, res) => {
         return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
 
-    const destination = await board.getPost(req.params.id);
+    const destination = await travel.getDestination(req.params.id);
     if (!destination) {
         return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
@@ -78,9 +80,9 @@ const renderIndex = async (req, res) => {
         ? req.query.priceRange
         : '';
     const limit = 6;
-    const totalDestinations = await board.countPosts(search, priceRange);
+    const totalDestinations = await travel.countDestinations(search, priceRange);
     const totalPages = Math.ceil(totalDestinations / limit);
-    const destinations = await board.getPosts(currentPage, limit, search, priceRange);
+    const destinations = await travel.getDestinations(currentPage, limit, search, priceRange);
     const filterParams = new URLSearchParams();
     if (search) filterParams.set('search', search);
     if (priceRange) filterParams.set('priceRange', priceRange);
@@ -137,7 +139,7 @@ const createDestination = async (req, res) => {
             return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
         }
 
-        previousDestination = await board.getPost(req.params.id);
+        previousDestination = await travel.getDestination(req.params.id);
 
         if (!previousDestination) {
             return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
@@ -159,7 +161,7 @@ const createDestination = async (req, res) => {
         if (!/^\p{Lu}/u.test(destination.name)) {
             errors.push('El nombre debe comenzar con una letra mayúscula.');
         }
-        const existingDestination = await board.getPostByName(destination.name);
+        const existingDestination = await travel.getDestinationByName(destination.name);
 
         if (
             existingDestination &&
@@ -191,7 +193,7 @@ const createDestination = async (req, res) => {
 
     if (errors.length) {
         if (req.file) await fs.rm(req.file.path, { force: true });
-        return renderError(
+        return renderNotice(
             res,
             400,
             isEditing ? 'No se pudo actualizar el destino' : 'No se pudo crear el destino',
@@ -207,33 +209,36 @@ const createDestination = async (req, res) => {
 }
 
 if (isEditing) {
-    await board.updatePost(req.params.id, destination);
+    await travel.updateDestination(req.params.id, destination);
 
     if (req.file && previousDestination.imageFilename) {
         await fs.rm(
-            `${board.UPLOADS_FOLDER}/${previousDestination.imageFilename}`,
+            `${travel.UPLOADS_FOLDER}/${previousDestination.imageFilename}`,
             { force: true }
         );
     }
 
-    return res.render('notice', {
-        title: 'Destino actualizado',
-        message: 'Los cambios se han guardado correctamente.',
-        actionUrl: '/',
-        actionLabel: 'Volver al menú principal',
-        detailUrl: `/destinations/${req.params.id}`,
-        detailLabel: 'Volver al destino'
-});
+    return renderNotice(
+        res,
+        200,
+        'Destino actualizado',
+        'Los cambios se han guardado correctamente.',
+        '/',
+        'Volver al menú principal',
+        {
+            detailUrl: `/destinations/${req.params.id}`,
+            detailLabel: 'Volver al destino'
+        }
+    );
 }
 
 destination.activities = [];
-const result = await board.addPost(destination);
+const result = await travel.addDestination(destination);
 
 res.redirect(303, `/destinations/${result.insertedId.toString()}/created`);
 };
 
 router.post('/destinations/new', upload.single('image'), createDestination);
-router.post('/post/new', upload.single('image'), createDestination);
 router.post('/destinations/:id/edit', upload.single('image'), createDestination);
 
 router.get('/destinations/:id/created', async (req, res) => {
@@ -241,19 +246,23 @@ router.get('/destinations/:id/created', async (req, res) => {
         return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
 
-    const destination = await board.getPost(req.params.id);
+    const destination = await travel.getDestination(req.params.id);
     if (!destination) {
         return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
 
-    res.render('notice', {
-        title: 'Destino creado correctamente',
-        message: `${destination.name} se ha añadido a SuperTrip.`,
-        actionUrl: '/',
-        actionLabel: 'Volver al inicio',
-        detailUrl: `/destinations/${destination._id}`,
-        detailLabel: 'Ver destino'
-    });
+    return renderNotice(
+        res,
+        200,
+        'Destino creado correctamente',
+        `${destination.name} se ha añadido a SuperTrip.`,
+        '/',
+        'Volver al inicio',
+        {
+            detailUrl: `/destinations/${destination._id}`,
+            detailLabel: 'Ver destino'
+        }
+    );
 });
 
 router.get('/destinations/:id', renderDestinationDetail);
@@ -262,7 +271,7 @@ router.get('/destinations/:id/edit', async (req, res) => {
         return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
 
-    const destination = await board.getPost(req.params.id);
+    const destination = await travel.getDestination(req.params.id);
 
     if (!destination) {
         return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
@@ -281,9 +290,7 @@ router.get('/destinations/:id/edit', async (req, res) => {
     });
 });
 
-router.get('/post/:id', renderDestinationDetail);
-
-router.get('/post/:id/delete', async (req, res) => {
+router.get('/destinations/:id/delete', async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         return renderNotice(
             res, 404, 'Destino no encontrado',
@@ -291,7 +298,7 @@ router.get('/post/:id/delete', async (req, res) => {
         );
     }
 
-    const destination = await board.deletePost(req.params.id);
+    const destination = await travel.deleteDestination(req.params.id);
 
     if (!destination) {
         return renderNotice(
@@ -302,7 +309,7 @@ router.get('/post/:id/delete', async (req, res) => {
 
     if (destination.imageFilename) {
         await fs.rm(
-            `${board.UPLOADS_FOLDER}/${destination.imageFilename}`,
+            `${travel.UPLOADS_FOLDER}/${destination.imageFilename}`,
             { force: true }
         );
     }
@@ -313,25 +320,25 @@ router.get('/post/:id/delete', async (req, res) => {
     );
 });
 
-router.get('/post/:id/image', async (req, res) => {
-    const destination = await board.getPost(req.params.id);
-    res.download(board.UPLOADS_FOLDER + '/' + destination.imageFilename);
+router.get('/destinations/:id/image', async (req, res) => {
+    const destination = await travel.getDestination(req.params.id);
+    res.download(travel.UPLOADS_FOLDER + '/' + destination.imageFilename);
 });
 
 const saveActivity = async (req, res) => {
     const isEditing = req.params.activityId !== undefined;
     let previousActivity = null;
     if (!ObjectId.isValid(req.params.id)) {
-        return renderError(
+        return renderNotice(
             res, 404, 'Destino no encontrado',
             'No existe ese destino.', '/', 'Volver al inicio'
         );
     }
 
-    const destination = await board.getPost(req.params.id);
+    const destination = await travel.getDestination(req.params.id);
 
     if (!destination) {
-        return renderError(
+        return renderNotice(
             res, 404, 'Destino no encontrado',
             'No existe ese destino.', '/', 'Volver al inicio'
         );
@@ -339,7 +346,7 @@ const saveActivity = async (req, res) => {
 
         if (isEditing) {
         if (ObjectId.isValid(req.params.activityId)) {
-            previousActivity = await board.getActivity(
+            previousActivity = await travel.getActivity(
                 req.params.id,
                 req.params.activityId
             );
@@ -350,7 +357,7 @@ const saveActivity = async (req, res) => {
                 await fs.rm(req.file.path, { force: true });
             }
 
-            return renderError(
+            return renderNotice(
                 res, 404, 'Actividad no encontrada',
                 'No existe esa actividad en este destino.',
                 `/destinations/${req.params.id}`, 'Volver al destino'
@@ -377,7 +384,7 @@ const errors = [];
 
 if (!activity.title) {
     errors.push('El título de la actividad es obligatorio.');
-} else if (await board.activityTitleExists(
+} else if (await travel.activityTitleExists(
     req.params.id,
     activity.title,
     req.params.activityId
@@ -394,7 +401,7 @@ if (
     !Number.isFinite(activity.price) ||
     activity.price < 0
 ) {
-    errors.push('El precio debe ser un número mayor o igual que cero.');
+    errors.push('El precio debe ser un importe en euros mayor o igual que cero.');
 }
 
 const validCategories = ['adventure', 'culture', 'gastronomy', 'nature'];
@@ -418,7 +425,7 @@ if (errors.length > 0) {
         await fs.rm(req.file.path, { force: true });
     }
 
-    return renderError(
+    return renderNotice(
         res,
         400,
         isEditing ? 'No se pudo actualizar la actividad' : 'No se pudo crear la actividad',
@@ -429,7 +436,7 @@ if (errors.length > 0) {
 }
 
 if (isEditing) {
-    const result = await board.updateActivity(
+    const result = await travel.updateActivity(
         req.params.id,
         req.params.activityId,
         activity
@@ -440,7 +447,7 @@ if (isEditing) {
             await fs.rm(req.file.path, { force: true });
         }
 
-        return renderError(
+        return renderNotice(
             res, 404, 'Actividad no encontrada',
             'La actividad ya no está disponible.',
             `/destinations/${req.params.id}`, 'Volver al destino'
@@ -449,22 +456,24 @@ if (isEditing) {
 
     if (req.file && previousActivity.imageFilename) {
         await fs.rm(
-            `${board.UPLOADS_FOLDER}/${previousActivity.imageFilename}`,
+            `${travel.UPLOADS_FOLDER}/${previousActivity.imageFilename}`,
             { force: true }
         );
     }
 } else {
-    await board.addActivity(req.params.id, activity);
+    await travel.addActivity(req.params.id, activity);
 }
 
-return res.render('notice', {
-    title: isEditing ? 'Actividad actualizada' : 'Actividad creada',
-    message: isEditing
+return renderNotice(
+    res,
+    200,
+    isEditing ? 'Actividad actualizada' : 'Actividad creada',
+    isEditing
         ? 'Los cambios se han guardado correctamente.'
         : 'La actividad se ha añadido correctamente al destino.',
-    actionUrl: `/destinations/${req.params.id}`,
-    actionLabel: 'Volver al destino'
-});
+    `/destinations/${req.params.id}`,
+    'Volver al destino'
+);
 };
 
 router.post('/destinations/:id/activities/new', upload.single('image'), saveActivity);
@@ -474,27 +483,27 @@ router.post('/destinations/:id/activities/:activityId/delete', async (req, res) 
     const { id, activityId } = req.params;
 
     if (!ObjectId.isValid(id) || !ObjectId.isValid(activityId)) {
-        return renderError(
+        return renderNotice(
             res, 404, 'Actividad no encontrada',
             'Los identificadores no son válidos.',
             '/', 'Volver al inicio'
         );
     }
 
-    const activity = await board.getActivity(id, activityId);
+    const activity = await travel.getActivity(id, activityId);
 
     if (!activity) {
-        return renderError(
+        return renderNotice(
             res, 404, 'Actividad no encontrada',
             'No existe esa actividad en este destino.',
             '/', 'Volver al inicio'
         );
     }
 
-    const result = await board.deleteActivity(id, activityId);
+    const result = await travel.deleteActivity(id, activityId);
 
     if (result.modifiedCount === 0) {
-        return renderError(
+        return renderNotice(
             res, 404, 'Actividad no encontrada',
             'La actividad ya no está disponible.',
             `/destinations/${id}`, 'Volver al destino'
@@ -503,34 +512,36 @@ router.post('/destinations/:id/activities/:activityId/delete', async (req, res) 
 
     if (activity.imageFilename) {
         await fs.rm(
-            `${board.UPLOADS_FOLDER}/${activity.imageFilename}`,
+            `${travel.UPLOADS_FOLDER}/${activity.imageFilename}`,
             { force: true }
         );
     }
 
-    return res.render('notice', {
-        title: 'Actividad eliminada',
-        message: 'La actividad se ha eliminado correctamente.',
-        actionUrl: `/destinations/${id}`,
-        actionLabel: 'Volver al destino'
-    });
+    return renderNotice(
+        res,
+        200,
+        'Actividad eliminada',
+        'La actividad se ha eliminado correctamente.',
+        `/destinations/${id}`,
+        'Volver al destino'
+    );
 });
 
 router.get('/destinations/:id/activities/:activityId/edit', async (req, res) => {
     const { id, activityId } = req.params;
 
     if (!ObjectId.isValid(id) || !ObjectId.isValid(activityId)) {
-        return renderError(
+        return renderNotice(
             res, 404, 'Actividad no encontrada',
             'Los identificadores no son válidos.',
             '/', 'Volver al inicio'
         );
     }
 
-    const activity = await board.getActivity(id, activityId);
+    const activity = await travel.getActivity(id, activityId);
 
     if (!activity) {
-        return renderError(
+        return renderNotice(
             res, 404, 'Actividad no encontrada',
             'No existe esa actividad en este destino.',
             `/destinations/${id}`, 'Volver al destino'
