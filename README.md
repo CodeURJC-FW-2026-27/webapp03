@@ -124,3 +124,100 @@
 4. [`assets/css/main.css`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/assets/css/main.css)
 5. [`data.json`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/PhotoFolio/PhotoFolio/data.json)
 
+
+# Práctica 2
+
+## Instrucciones de ejecución
+
+### Requisitos
+* Node.js 20 o superior.
+* MongoDB 6 o superior, ejecutándose en `localhost:27017`.
+
+### Instalación y ejecución
+Clonar el repositorio, instalar las dependencias y arrancar la aplicación:
+
+```bash
+git clone https://github.com/CodeURJC-FW-2026-27/webapp03.git
+cd webapp03
+npm install
+npm start
+```
+
+No hay un paso de compilación adicional. La aplicación estará disponible en [http://localhost:3000](http://localhost:3000). Al arrancar, se cargan los datos de ejemplo si la base de datos está vacía y se copian las imágenes de `data/images` a `uploads`.
+
+## Descripción de ficheros
+
+* `src/app.js`: configura Express, las vistas y los recursos estáticos.
+* `src/router.js`: define las rutas, procesa formularios y valida los datos.
+* `src/travel.js`: operaciones de lectura y escritura de destinos y actividades en MongoDB.
+* `src/load_data.js`: carga los datos de ejemplo y copia las imágenes al arrancar.
+* `views/index.html`: listado y búsqueda de destinos.
+* `views/detail_page.html`: detalle del destino y sus actividades.
+* `views/new_element.html`: formulario para crear y editar destinos.
+* `views/edit_activity.html` y `views/partials/activity_form.html`: edición y formulario de actividades.
+* `views/notice.html`: avisos de éxito y errores.
+* `views/partials/site_header.html` y `views/partials/site_footer.html`: cabecera y pie compartidos.
+* `data/data.json` y `data/images/`: datos e imágenes de ejemplo.
+* `public/`: hojas de estilo, JavaScript y recursos estáticos.
+
+## Vídeo demostrativo
+
+* **YouTube (mínimo 1 minuto):** [Añadir enlace al vídeo](URL_DEL_VIDEO)
+
+## Participación de miembros
+
+Completar las tareas y sustituir los ejemplos por enlaces a los commits y ficheros correspondientes.
+
+### 👤 Adrián Varea Fernández (`@blodresg`)
+
+**Tareas realizadas:** [Completar]
+
+**5 commits más significativos**
+1. [Descripción del commit](URL_DEL_COMMIT_1)
+2. [Descripción del commit](URL_DEL_COMMIT_2)
+3. [Descripción del commit](URL_DEL_COMMIT_3)
+4. [Descripción del commit](URL_DEL_COMMIT_4)
+5. [Descripción del commit](URL_DEL_COMMIT_5)
+
+**5 ficheros principales**
+1. [Fichero 1](RUTA_DEL_FICHERO_1)
+2. [Fichero 2](RUTA_DEL_FICHERO_2)
+3. [Fichero 3](RUTA_DEL_FICHERO_3)
+4. [Fichero 4](RUTA_DEL_FICHERO_4)
+5. [Fichero 5](RUTA_DEL_FICHERO_5)
+
+### 👤 Salvador Barquilla Cedillo (`@SalvaB14`)
+
+**Tareas realizadas:** [Completar]
+
+**5 commits más significativos**
+1. [Descripción del commit](URL_DEL_COMMIT_1)
+2. [Descripción del commit](URL_DEL_COMMIT_2)
+3. [Descripción del commit](URL_DEL_COMMIT_3)
+4. [Descripción del commit](URL_DEL_COMMIT_4)
+5. [Descripción del commit](URL_DEL_COMMIT_5)
+
+**5 ficheros principales**
+1. [Fichero 1](RUTA_DEL_FICHERO_1)
+2. [Fichero 2](RUTA_DEL_FICHERO_2)
+3. [Fichero 3](RUTA_DEL_FICHERO_3)
+4. [Fichero 4](RUTA_DEL_FICHERO_4)
+5. [Fichero 5](RUTA_DEL_FICHERO_5)
+
+### 👤 Sergio Abueitah Cantero (`@SergioAbueitah`)
+
+**Tareas realizadas:** [Completar]
+
+**5 commits más significativos**
+1. [Descripción del commit](URL_DEL_COMMIT_1)
+2. [Descripción del commit](URL_DEL_COMMIT_2)
+3. [Descripción del commit](URL_DEL_COMMIT_3)
+4. [Descripción del commit](URL_DEL_COMMIT_4)
+5. [Descripción del commit](URL_DEL_COMMIT_5)
+
+**5 ficheros principales**
+1. [Fichero 1](RUTA_DEL_FICHERO_1)
+2. [Fichero 2](RUTA_DEL_FICHERO_2)
+3. [Fichero 3](RUTA_DEL_FICHERO_3)
+4. [Fichero 4](RUTA_DEL_FICHERO_4)
+5. [Fichero 5](RUTA_DEL_FICHERO_5)
