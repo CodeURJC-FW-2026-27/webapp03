@@ -194,6 +194,7 @@ Completar las tareas y sustituir los ejemplos por enlaces a los commits y ficher
 **5 commits más significativos**
 1. [Diseño y funcionalidad de la página principal](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/88698c829893b9706cd6787c088ca3bb4a08a14f)
 2. [Página de error (no es la misma que la definitiva) y algún ajuste de otras páginas y ficheros](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/754450657d2f4215d91bb2079a6c8ec6eccc98ee)
+3. [Cambio de idioma de comentarios](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/fc09bb8835a76717ef466101c0b75455e61eb2a4)
 
 **5 ficheros principales**
 1. [`index.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/views/index.html)
