@@ -158,8 +158,8 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <!--New activity form-->
-        <form action="/destinations/{{destination._id}}/activities/new" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
-
+        <form action="/destinations/{{destination._id}}/activities/new" method="post" enctype="multipart/form-data" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+            <div class = "row gy-4">
 
             <!--New activity features-->
 
@@ -194,7 +194,7 @@
             </div>
 
             <div class="col-md-12">
-              <input type="url" class="form-control" name="activity-image-url" placeholder="URL de la imagen de la actividad" required="">
+              <input type="file" class="form-control" name="image" accept="image/*" required>
             </div>
             
             <!--/New activity features-->
@@ -228,7 +228,6 @@
 
   <!-- Vendor JS Files -->
   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/assets/vendor/php-email-form/validate.js"></script>
   <script src="/assets/vendor/aos/aos.js"></script>
   <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>

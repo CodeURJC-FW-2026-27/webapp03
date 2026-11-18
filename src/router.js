@@ -17,7 +17,11 @@ const displayValues = {
     winter: 'Invierno',
     spring: 'Primavera',
     summer: 'Verano',
-    autumn: 'Otoño'
+    autumn: 'Otoño',
+    adventure: 'Aventura',
+    culture: 'Cultura',
+    gastronomy: 'Gastronomía',
+    nature: 'Naturaleza'
 };
 
 const priceRangeOptions = [
@@ -310,9 +314,9 @@ router.get('/post/:id/image', async (req, res) => {
     res.download(board.UPLOADS_FOLDER + '/' + destination.imageFilename);
 });
 
-router.post('/destinations/:id/activities/new', async (req, res) => {
+router.post('/destinations/:id/activities/new', upload.single('image'), async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
-        return renderNotice(
+        return renderError(
             res, 404, 'Destino no encontrado',
             'No existe ese destino.', '/', 'Volver al inicio'
         );
@@ -321,7 +325,7 @@ router.post('/destinations/:id/activities/new', async (req, res) => {
     const destination = await board.getPost(req.params.id);
 
     if (!destination) {
-        return renderNotice(
+        return renderError(
             res, 404, 'Destino no encontrado',
             'No existe ese destino.', '/', 'Volver al inicio'
         );
@@ -334,8 +338,67 @@ router.post('/destinations/:id/activities/new', async (req, res) => {
     price: Number(req.body['activity-price']),
     category: String(req.body['element-category'] || ''),
     requiresBooking: req.body['activity-requires-booking'] === 'yes',
-    imageUrl: String(req.body['activity-image-url'] || '').trim()
+    imageFilename: req.file ? req.file.filename : '',
+    imageUrl: req.file ? `/uploads/${req.file.filename}` : ''
 };
 
 const errors = [];
+
+if (!activity.title) {
+    errors.push('El título de la actividad es obligatorio.');
+} else if (await board.activityTitleExists(req.params.id, activity.title)) {
+    errors.push('Ya existe una actividad con ese título en este destino.');
+}
+
+if (!activity.description) {
+    errors.push('La descripción de la actividad es obligatoria.');
+}
+
+if (
+    !String(req.body['activity-price'] || '').trim() ||
+    !Number.isFinite(activity.price) ||
+    activity.price < 0
+) {
+    errors.push('El precio debe ser un número mayor o igual que cero.');
+}
+
+const validCategories = ['adventure', 'culture', 'gastronomy', 'nature'];
+
+if (!validCategories.includes(activity.category)) {
+    errors.push('Selecciona una categoría válida.');
+}
+
+const bookingValue = req.body['activity-requires-booking'];
+
+if (bookingValue !== 'yes' && bookingValue !== 'no') {
+    errors.push('Indica si la actividad requiere reserva previa.');
+}
+
+if (!req.file) {
+    errors.push('Selecciona una imagen.');
+}
+
+if (errors.length > 0) {
+    if (req.file) {
+        await fs.rm(req.file.path, { force: true });
+    }
+
+    return renderError(
+        res,
+        400,
+        'No se pudo crear la actividad',
+        errors.join(' '),
+        `/destinations/${req.params.id}`,
+        'Volver al destino'
+    );
+}
+
+await board.addActivity(req.params.id, activity);
+
+return res.render('notice', {
+    title: 'Actividad creada',
+    message: 'La actividad se ha añadido correctamente al destino.',
+    actionUrl: `/destinations/${req.params.id}`,
+    actionLabel: 'Volver al destino'
+});
 });
