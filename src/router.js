@@ -59,12 +59,12 @@ const renderError = (res, status, title, message, actionUrl, actionLabel) => {
 
 const renderDestinationDetail = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
-        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+        return renderError(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
 
     const destination = await board.getPost(req.params.id);
     if (!destination) {
-        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+        return renderError(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
 
     res.render('detail_page', { destination: formatDestination(destination) });
@@ -134,13 +134,13 @@ const createDestination = async (req, res) => {
 
     if (isEditing) {
         if (!ObjectId.isValid(req.params.id)) {
-            return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+            return renderError(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
         }
 
         previousDestination = await board.getPost(req.params.id);
 
         if (!previousDestination) {
-            return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+            return renderError(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
         }
     }
     const destination = {
@@ -238,12 +238,12 @@ router.post('/destinations/:id/edit', upload.single('image'), createDestination)
 
 router.get('/destinations/:id/created', async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
-        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+        return renderError(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
 
     const destination = await board.getPost(req.params.id);
     if (!destination) {
-        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+        return renderError(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
 
     res.render('notice', {
@@ -259,13 +259,13 @@ router.get('/destinations/:id/created', async (req, res) => {
 router.get('/destinations/:id', renderDestinationDetail);
 router.get('/destinations/:id/edit', async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
-        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+        return renderError(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
 
     const destination = await board.getPost(req.params.id);
 
     if (!destination) {
-        return renderNotice(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
+        return renderError(res, 404, 'Destino no encontrado', 'No existe ese destino.', '/', 'Volver al inicio');
     }
 
     res.render('new_element', {
@@ -285,7 +285,7 @@ router.get('/post/:id', renderDestinationDetail);
 
 router.get('/post/:id/delete', async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
-        return renderNotice(
+        return renderError(
             res, 404, 'Destino no encontrado',
             'No existe ese destino.', '/', 'Volver al inicio'
         );
@@ -294,7 +294,7 @@ router.get('/post/:id/delete', async (req, res) => {
     const destination = await board.deletePost(req.params.id);
 
     if (!destination) {
-        return renderNotice(
+        return renderError(
             res, 404, 'Destino no encontrado',
             'No existe ese destino.', '/', 'Volver al inicio'
         );
@@ -307,10 +307,12 @@ router.get('/post/:id/delete', async (req, res) => {
         );
     }
 
-    return renderNotice(
-        res, 200, 'Destino eliminado',
-        'El destino se ha eliminado.', '/', 'Volver al inicio'
-    );
+    return res.render('notice', {
+    title: 'Destino eliminado',
+    message: 'El destino se ha eliminado.',
+    actionUrl: '/',
+    actionLabel: 'Volver al inicio'
+    });
 });
 
 router.get('/post/:id/image', async (req, res) => {
