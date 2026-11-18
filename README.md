@@ -131,7 +131,8 @@
 
 ### Requisitos
 * Node.js 20 o superior.
-* MongoDB 6 o superior, ejecutándose en `localhost:27017`.
+* MongoDB Server 6 o superior, ejecutándose en `localhost:27017`.
+* MongoDB Compass es recomendable, pero opcional: permite conectarse al servidor y explorar la base de datos mediante una interfaz gráfica.
 
 ### Instalación y ejecución
 Clonar el repositorio, instalar las dependencias y arrancar la aplicación:
