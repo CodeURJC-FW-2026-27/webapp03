@@ -49,13 +49,13 @@
 ## Capturas de Pantalla
 
 ### Página Principal
-[![Página Principal](PhotoFolio/PhotoFolio/assets/img/captura_index.jpg)](PhotoFolio/PhotoFolio/assets/img/captura_index.jpg)
+[![Página Principal](public/assets/img/captura_index.jpg)](public/assets/img/captura_index.jpg)
 
 ### Página de Detalle
-[![Página de Detalle](PhotoFolio/PhotoFolio/assets/img/captura_detalle.jpg)](PhotoFolio/PhotoFolio/assets/img/captura_detalle.jpg)
+[![Página de Detalle](public/assets/img/captura_detalle.jpg)](public/assets/img/captura_detalle.jpg)
 
 ### Página de Nuevo Elemento
-[![Página de Formulario](PhotoFolio/PhotoFolio/assets/img/captura_formulario-jpg.png)](PhotoFolio/PhotoFolio/assets/img/captura_formulario-jpg.png)
+[![Página de Formulario](public/assets/img/captura_formulario-jpg.png)](public/assets/img/captura_formulario-jpg.png)
 
 ---
 
@@ -163,7 +163,7 @@ No hay un paso de compilación adicional. La aplicación estará disponible en [
 
 ## Vídeo demostrativo
 
-* **YouTube (mínimo 1 minuto):** (https://github.com/CodeURJC-FW-2026-27/webapp03)
+* **YouTube (mínimo 1 minuto):** (https://youtu.be/y2NHTvSsokI)
 
 ## Participación de miembros
 
