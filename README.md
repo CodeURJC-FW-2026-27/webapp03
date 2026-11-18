@@ -195,10 +195,10 @@ Completar las tareas y sustituir los ejemplos por enlaces a los commits y ficher
 2. [Página de error (no es la misma que la definitiva) y algún ajuste de otras páginas y ficheros](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/754450657d2f4215d91bb2079a6c8ec6eccc98ee)
 
 **5 ficheros principales**
-1. [`index.html`](RUTA_DEL_FICHERO_1)
-3. [`router.js`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/src/router.js)
-4. [`travel.js`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/src/travel.js)
-2. [`main.css`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/public/main.css)
+1. [`index.html`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/views/index.html)
+2. [`router.js`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/src/router.js)
+3. [`travel.js`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/src/travel.js)
+4. [`main.css`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/public/main.css)
 5. [`.gitignore`](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/.gitignore)
 
 ### 👤 Sergio Abueitah Cantero (`@SergioAbueitah`)
