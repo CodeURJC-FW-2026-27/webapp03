@@ -163,29 +163,29 @@ No hay un paso de compilación adicional. La aplicación estará disponible en [
 
 ## Vídeo demostrativo
 
-* **YouTube (mínimo 1 minuto):** [Añadir enlace al vídeo](URL_DEL_VIDEO)
+* **YouTube (mínimo 1 minuto):** (https://github.com/CodeURJC-FW-2026-27/webapp03)
 
 ## Participación de miembros
 
-Completar las tareas y sustituir los ejemplos por enlaces a los commits y ficheros correspondientes.
 
 ### 👤 Adrián Varea Fernández (`@blodresg`)
 
-**Tareas realizadas:** [Completar]
+**Tareas realizadas:** 
+Me he ocupado de la configuración inicial del proyecto, copiando el código de ejemplo y modificándolo. He desarrollado la creación de nuevo elemento, las páginas de error y éxito (que luego también adaptan mis compañeros) y me he encargado de los retoques finales a la web.
 
 **5 commits más significativos**
-1. [Descripción del commit](URL_DEL_COMMIT_1)
-2. [Descripción del commit](URL_DEL_COMMIT_2)
-3. [Descripción del commit](URL_DEL_COMMIT_3)
-4. [Descripción del commit](URL_DEL_COMMIT_4)
-5. [Descripción del commit](URL_DEL_COMMIT_5)
+1. [Configuración inicial](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/40960f132f2708754a9956b14363ee5a842393c2)
+2. [Crear elemento, header, footer y más cambios](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/8664e3dd258a94ecbb62b2a03f4d7eb160feaf5d)
+3. [Arreglos finales](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/1186bd85770af48e20f63ed1f1c959a3130acfa4)
+4. [Arreglo de imágenes](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/7132adfd7aced8ee9ac81bbab211ace69f758881)
+5. [Arreglo a idioma de valores de formulario](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/cc434fcb9dcb0fe11fc1ee45e213c267deae4826)
 
 **5 ficheros principales**
-1. [`Fichero 1`](RUTA_DEL_FICHERO_1)
-2. [`Fichero 2`](RUTA_DEL_FICHERO_2)
-3. [`Fichero 3`](RUTA_DEL_FICHERO_3)
-4. [`Fichero 4`](RUTA_DEL_FICHERO_4)
-5. [`Fichero 5`](RUTA_DEL_FICHERO_5)
+1. [router.js](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/src/router.js)
+2. [travel.js](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/src/travel.js)
+3. [notice.html](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/views/notice.html)
+4. [detail_page.html](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/views/detail_page.html)
+5. [new.element.html](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/views/new_element.html)
 
 ### 👤 Salvador Barquilla Cedillo (`@SalvaB14`)
 
