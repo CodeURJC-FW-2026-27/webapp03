@@ -15,6 +15,7 @@ if (await board.countPosts() === 0) {
     }
     console.log('Demo destinations loaded');
 }
+await board.ensureActivityIds();
 
 await fs.mkdir(board.UPLOADS_FOLDER, { recursive: true });
 await fs.mkdir(board.DATA_IMAGES_FOLDER, { recursive: true });

@@ -41,7 +41,11 @@ const formatValue = (value) => {
 const formatDestination = (destination) => ({
     ...destination,
     priceRange: formatValue(destination.priceRange),
-    recommendedSeason: formatValue(destination.recommendedSeason)
+    recommendedSeason: formatValue(destination.recommendedSeason),
+    activities: (destination.activities || []).map(activity => ({
+        ...activity,
+        category: formatValue(activity.category)
+    }))
 });
 
 const renderError = (res, status, title, message, actionUrl, actionLabel) => {
@@ -314,7 +318,9 @@ router.get('/post/:id/image', async (req, res) => {
     res.download(board.UPLOADS_FOLDER + '/' + destination.imageFilename);
 });
 
-router.post('/destinations/:id/activities/new', upload.single('image'), async (req, res) => {
+const saveActivity = async (req, res) => {
+    const isEditing = req.params.activityId !== undefined;
+    let previousActivity = null;
     if (!ObjectId.isValid(req.params.id)) {
         return renderError(
             res, 404, 'Destino no encontrado',
@@ -331,22 +337,51 @@ router.post('/destinations/:id/activities/new', upload.single('image'), async (r
         );
     }
 
+        if (isEditing) {
+        if (ObjectId.isValid(req.params.activityId)) {
+            previousActivity = await board.getActivity(
+                req.params.id,
+                req.params.activityId
+            );
+        }
+
+        if (!previousActivity) {
+            if (req.file) {
+                await fs.rm(req.file.path, { force: true });
+            }
+
+            return renderError(
+                res, 404, 'Actividad no encontrada',
+                'No existe esa actividad en este destino.',
+                `/destinations/${req.params.id}`, 'Volver al destino'
+            );
+        }
+    }
+
     const activity = {
-    _id: new ObjectId(),
+    _id: isEditing ? previousActivity._id : new ObjectId(),
     title: String(req.body['activity-title'] || '').trim(),
     description: String(req.body['activity-description'] || '').trim(),
     price: Number(req.body['activity-price']),
     category: String(req.body['element-category'] || ''),
     requiresBooking: req.body['activity-requires-booking'] === 'yes',
-    imageFilename: req.file ? req.file.filename : '',
-    imageUrl: req.file ? `/uploads/${req.file.filename}` : ''
+    imageFilename: req.file
+        ? req.file.filename
+        : previousActivity?.imageFilename || '',
+    imageUrl: req.file
+        ? `/uploads/${req.file.filename}`
+        : previousActivity?.imageUrl || ''
 };
 
 const errors = [];
 
 if (!activity.title) {
     errors.push('El título de la actividad es obligatorio.');
-} else if (await board.activityTitleExists(req.params.id, activity.title)) {
+} else if (await board.activityTitleExists(
+    req.params.id,
+    activity.title,
+    req.params.activityId
+)) {
     errors.push('Ya existe una actividad con ese título en este destino.');
 }
 
@@ -374,7 +409,7 @@ if (bookingValue !== 'yes' && bookingValue !== 'no') {
     errors.push('Indica si la actividad requiere reserva previa.');
 }
 
-if (!req.file) {
+if (!req.file && !isEditing) {
     errors.push('Selecciona una imagen.');
 }
 
@@ -386,19 +421,130 @@ if (errors.length > 0) {
     return renderError(
         res,
         400,
-        'No se pudo crear la actividad',
+        isEditing ? 'No se pudo actualizar la actividad' : 'No se pudo crear la actividad',
         errors.join(' '),
         `/destinations/${req.params.id}`,
         'Volver al destino'
     );
 }
 
-await board.addActivity(req.params.id, activity);
+if (isEditing) {
+    const result = await board.updateActivity(
+        req.params.id,
+        req.params.activityId,
+        activity
+    );
+
+    if (result.matchedCount === 0) {
+        if (req.file) {
+            await fs.rm(req.file.path, { force: true });
+        }
+
+        return renderError(
+            res, 404, 'Actividad no encontrada',
+            'La actividad ya no está disponible.',
+            `/destinations/${req.params.id}`, 'Volver al destino'
+        );
+    }
+
+    if (req.file && previousActivity.imageFilename) {
+        await fs.rm(
+            `${board.UPLOADS_FOLDER}/${previousActivity.imageFilename}`,
+            { force: true }
+        );
+    }
+} else {
+    await board.addActivity(req.params.id, activity);
+}
 
 return res.render('notice', {
-    title: 'Actividad creada',
-    message: 'La actividad se ha añadido correctamente al destino.',
+    title: isEditing ? 'Actividad actualizada' : 'Actividad creada',
+    message: isEditing
+        ? 'Los cambios se han guardado correctamente.'
+        : 'La actividad se ha añadido correctamente al destino.',
     actionUrl: `/destinations/${req.params.id}`,
     actionLabel: 'Volver al destino'
 });
+};
+
+router.post('/destinations/:id/activities/new', upload.single('image'), saveActivity);
+router.post('/destinations/:id/activities/:activityId/edit', upload.single('image'), saveActivity);
+
+router.post('/destinations/:id/activities/:activityId/delete', async (req, res) => {
+    const { id, activityId } = req.params;
+
+    if (!ObjectId.isValid(id) || !ObjectId.isValid(activityId)) {
+        return renderError(
+            res, 404, 'Actividad no encontrada',
+            'Los identificadores no son válidos.',
+            '/', 'Volver al inicio'
+        );
+    }
+
+    const activity = await board.getActivity(id, activityId);
+
+    if (!activity) {
+        return renderError(
+            res, 404, 'Actividad no encontrada',
+            'No existe esa actividad en este destino.',
+            '/', 'Volver al inicio'
+        );
+    }
+
+    const result = await board.deleteActivity(id, activityId);
+
+    if (result.modifiedCount === 0) {
+        return renderError(
+            res, 404, 'Actividad no encontrada',
+            'La actividad ya no está disponible.',
+            `/destinations/${id}`, 'Volver al destino'
+        );
+    }
+
+    if (activity.imageFilename) {
+        await fs.rm(
+            `${board.UPLOADS_FOLDER}/${activity.imageFilename}`,
+            { force: true }
+        );
+    }
+
+    return res.render('notice', {
+        title: 'Actividad eliminada',
+        message: 'La actividad se ha eliminado correctamente.',
+        actionUrl: `/destinations/${id}`,
+        actionLabel: 'Volver al destino'
+    });
+});
+
+router.get('/destinations/:id/activities/:activityId/edit', async (req, res) => {
+    const { id, activityId } = req.params;
+
+    if (!ObjectId.isValid(id) || !ObjectId.isValid(activityId)) {
+        return renderError(
+            res, 404, 'Actividad no encontrada',
+            'Los identificadores no son válidos.',
+            '/', 'Volver al inicio'
+        );
+    }
+
+    const activity = await board.getActivity(id, activityId);
+
+    if (!activity) {
+        return renderError(
+            res, 404, 'Actividad no encontrada',
+            'No existe esa actividad en este destino.',
+            `/destinations/${id}`, 'Volver al destino'
+        );
+    }
+
+    const category = formatValue(activity.category).toLocaleUpperCase('es');
+
+    return res.render('edit_activity', {
+        destination: { _id: id },
+        activity,
+        isAdventure: category === 'AVENTURA',
+        isCulture: category === 'CULTURA',
+        isGastronomy: category === 'GASTRONOMÍA',
+        isNature: category === 'NATURALEZA'
+    });
 });

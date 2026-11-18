@@ -91,11 +91,17 @@ export async function addActivity(destinationId, activity) {
     );
 }
 
-export async function activityTitleExists(destinationId, title) {
+export async function activityTitleExists(destinationId, title, excludedId) {
+    const activityFilter = { title };
+
+    if (excludedId) {
+        activityFilter._id = { $ne: new ObjectId(excludedId) };
+    }
+
     const destination = await posts.findOne(
         {
             _id: new ObjectId(destinationId),
-            'activities.title': title
+            activities: { $elemMatch: activityFilter }
         },
         {
             collation: { locale: 'es', strength: 2 }
@@ -103,4 +109,61 @@ export async function activityTitleExists(destinationId, title) {
     );
 
     return destination !== null;
+}
+
+export async function ensureActivityIds() {
+    const destinations = await posts.find({
+        activities: { $elemMatch: { _id: { $exists: false } } }
+    }).toArray();
+
+    for (const destination of destinations) {
+        for (const activity of destination.activities) {
+            if (!activity._id) {
+                activity._id = new ObjectId();
+            }
+        }
+
+        await updatePost(destination._id.toString(), {
+            activities: destination.activities
+        });
+    }
+}
+
+export async function deleteActivity(destinationId, activityId) {
+    return await posts.updateOne(
+        { _id: new ObjectId(destinationId) },
+        {
+            $pull: {
+                activities: { _id: new ObjectId(activityId) }
+            }
+        }
+    );
+}
+
+export async function getActivity(destinationId, activityId) {
+    const destination = await getPost(destinationId);
+
+    if (!destination) {
+        return null;
+    }
+
+    return destination.activities.find(
+        activity => activity._id.toString() === activityId
+    ) || null;
+}
+
+export async function updateActivity(destinationId, activityId, changes) {
+    const fields = {};
+
+    for (const field in changes) {
+        fields[`activities.$.${field}`] = changes[field];
+    }
+
+    return await posts.updateOne(
+        {
+            _id: new ObjectId(destinationId),
+            'activities._id': new ObjectId(activityId)
+        },
+        { $set: fields }
+    );
 }
