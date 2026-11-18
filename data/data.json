@@ -6,7 +6,7 @@
     "description": "Capital noruega conocida por sus espacios verdes, arquitectura vanguardista y museos históricos.",
     "priceRange": "ALTO",
     "recommendedSeason": "PRIMAVERA",
-    "imageUrl": "/assets/img/gallery/oslo.jpg",
+    "imageUrl": "/uploads/oslo.jpg",
     "activities": [
       {
         "title": "Visita al Museo de Barcos Vikingos y Vigeland",
@@ -14,7 +14,7 @@
         "price": 25.00,
         "category": "CULTURA",
         "requiresBooking": true,
-        "imageUrl": "/assets/img/gallery/Cubierta-del-barco-de-Oseberg.jpg"
+        "imageUrl": "/uploads/Cubierta-del-barco-de-Oseberg.jpg"
       },
       {
         "title": "Crucero por el Fiordo de Oslo",
@@ -22,7 +22,7 @@
         "price": 55.00,
         "category": "NATURALEZA",
         "requiresBooking": true,
-        "imageUrl": "/assets/img/gallery/Crucero-fiordos.jpg"
+        "imageUrl": "/uploads/Crucero-fiordos.jpg"
       }
     ]
   },
@@ -33,7 +33,7 @@
     "description": "Antigua capital imperial japonesa famosa por sus templos budistas, jardines y santuarios Shinto.",
     "priceRange": "ALTO",
     "recommendedSeason": "PRIMAVERA",
-    "imageUrl": "/assets/img/gallery/kioto.jpg",
+    "imageUrl": "/uploads/kioto.jpg",
     "activities": [
       {
         "title": "Ceremonia Tradicional del Té",
@@ -41,7 +41,7 @@
         "price": 45.00,
         "category": "CULTURA",
         "requiresBooking": true,
-        "imageUrl": "/images/activities/ceremonia-te.jpg"
+        "imageUrl": "/uploads/ceremonia-te.jpg"
       },
       {
         "title": "Ruta Gastronómica por Nishiki Market",
@@ -49,7 +49,7 @@
         "price": 35.00,
         "category": "GASTRONOMÍA",
         "requiresBooking": false,
-        "imageUrl": "/images/activities/nishiki.jpg"
+        "imageUrl": "/uploads/nishiki.jpg"
       }
     ]
   },
@@ -60,7 +60,7 @@
     "description": "Capital de Vietnam célebre por su arquitectura de la era colonial y su vibrante gastronomía callejera.",
     "priceRange": "ECONÓMICO",
     "recommendedSeason": "OTOÑO",
-    "imageUrl": "/assets/img/gallery/hanoi.jpg",
+    "imageUrl": "/uploads/hanoi.jpg",
     "activities": [
       {
         "title": "Crucero por la Bahía de Ha-Long",
@@ -68,7 +68,7 @@
         "price": 55.00,
         "category": "NATURALEZA",
         "requiresBooking": true,
-        "imageUrl": "/images/activities/halong.jpg"
+        "imageUrl": "/uploads/halong.jpg"
       },
       {
         "title": "Street Food Tour por el Barrio Antiguo",
@@ -76,7 +76,7 @@
         "price": 15.00,
         "category": "GASTRONOMÍA",
         "requiresBooking": false,
-        "imageUrl": "/images/activities/street-food.jpg"
+        "imageUrl": "/uploads/street-food.jpg"
       }
     ]
   },
@@ -87,7 +87,7 @@
     "description": "Ciudad costera mediterránea que combina historia, playas y la vanguardia de la Ciudad de las Artes.",
     "priceRange": "MEDIO",
     "recommendedSeason": "PRIMAVERA",
-    "imageUrl": "/assets/img/gallery/valencia.jpg",
+    "imageUrl": "/uploads/valencia.jpg",
     "activities": [
       {
         "title": "Taller de Paella Valenciana Tradicional",
@@ -95,7 +95,7 @@
         "price": 50.00,
         "category": "GASTRONOMÍA",
         "requiresBooking": true,
-        "imageUrl": "/images/activities/paella.jpg"
+        "imageUrl": "/uploads/paella.jpg"
       },
       {
         "title": "Ruta en Bici por los Jardines del Turia",
@@ -103,7 +103,7 @@
         "price": 18.00,
         "category": "AVENTURA",
         "requiresBooking": false,
-        "imageUrl": "/images/activities/bici-turia.jpg"
+        "imageUrl": "/uploads/bici-turia.jpg"
       }
     ]
   },
@@ -114,7 +114,7 @@
     "description": "Lujosa metrópolis conocida por sus rascacielos ultramodernos, compras de alto nivel y vida nocturna.",
     "priceRange": "LUJO",
     "recommendedSeason": "INVIERNO",
-    "imageUrl": "/assets/img/gallery/dubai.jpg",
+    "imageUrl": "/uploads/dubai.jpg",
     "activities": [
       {
         "title": "Entrada VIP al Piso 148 del Burj Khalifa",
@@ -122,7 +122,7 @@
         "price": 140.00,
         "category": "CULTURA",
         "requiresBooking": true,
-        "imageUrl": "/images/activities/burj-khalifa.jpg"
+        "imageUrl": "/uploads/burj-khalifa.jpg"
       },
       {
         "title": "Safari Privado en el Desierto con Cena VIP",
@@ -130,7 +130,7 @@
         "price": 210.00,
         "category": "AVENTURA",
         "requiresBooking": true,
-        "imageUrl": "/images/activities/safari-dubai.jpg"
+        "imageUrl": "/uploads/safari-dubai.jpg"
       }
     ]
   },
@@ -141,7 +141,7 @@
     "description": "Ciudad colonial reconocida por su cultura indígena, artesanías y reputación como capital gastronómica.",
     "priceRange": "ECONÓMICO",
     "recommendedSeason": "OTOÑO",
-    "imageUrl": "/assets/img/gallery/oaxaca.jpg",
+    "imageUrl": "/uploads/oaxaca.jpg",
     "activities": [
       {
         "title": "Visita a las Cascadas Petrificadas de Hierve el Agua",
@@ -149,7 +149,7 @@
         "price": 25.00,
         "category": "NATURALEZA",
         "requiresBooking": false,
-        "imageUrl": "/images/activities/hierve-agua.jpg"
+        "imageUrl": "/uploads/hierve-agua.jpg"
       },
       {
         "title": "Cata de Mezcal en Palenque Artesanal",
@@ -157,7 +157,7 @@
         "price": 30.00,
         "category": "GASTRONOMÍA",
         "requiresBooking": true,
-        "imageUrl": "/images/activities/mezcal.jpg"
+        "imageUrl": "/uploads/mezcal.jpg"
       }
     ]
   },
@@ -168,7 +168,7 @@
     "description": "Impresionante ciudad costera dominada por la emblemática Montaña de la Mesa y playas de aguas cristalinas.",
     "priceRange": "MEDIO",
     "recommendedSeason": "VERANO",
-    "imageUrl": "/assets/img/gallery/ciudad%20del%20cabo.jpg",
+    "imageUrl": "/uploads/ciudad-del-cabo.jpg",
     "activities": [
       {
         "title": "Ascenso en Teleférico a Table Mountain",
@@ -176,7 +176,7 @@
         "price": 22.00,
         "category": "NATURALEZA",
         "requiresBooking": false,
-        "imageUrl": "/images/activities/table-mountain.jpg"
+        "imageUrl": "/uploads/table-mountain.jpg"
       },
       {
         "title": "Excursión a la Colonia de Pingüinos de Boulders Beach",
@@ -184,7 +184,7 @@
         "price": 12.00,
         "category": "NATURALEZA",
         "requiresBooking": false,
-        "imageUrl": "/images/activities/boulders-beach.jpg"
+        "imageUrl": "/uploads/boulders-beach.jpg"
       }
     ]
   },
@@ -195,15 +195,15 @@
     "description": "Antigua capital del Imperio Inca ubicada en los Andes, puerta de entrada hacia las ruinas de Machu Picchu.",
     "priceRange": "ECONÓMICO",
     "recommendedSeason": "VERANO",
-    "imageUrl": "/assets/img/gallery/cusco.jpg",
+    "imageUrl": "/uploads/cusco.jpg",
     "activities": [
       {
-        "title": "Trek por el Valle Sagrado e Pisac",
+        "title": "Trek por el Valle Sagrado de Pisac",
         "description": "Caminata guiada entre terrazas agrícolas incas y los coloridos mercados locales.",
         "price": 35.00,
         "category": "AVENTURA",
         "requiresBooking": true,
-        "imageUrl": "/images/activities/valle-sagrado.jpg"
+        "imageUrl": "/uploads/valle-sagrado.jpg"
       },
       {
         "title": "Tour Histórico al Templo de Qorikancha",
@@ -211,7 +211,7 @@
         "price": 10.00,
         "category": "CULTURA",
         "requiresBooking": false,
-        "imageUrl": "/images/activities/qorikancha.jpg"
+        "imageUrl": "/uploads/qorikancha.jpg"
       }
     ]
   },
@@ -222,7 +222,7 @@
     "description": "Cosmopolita urbe costera mundialmente famosa por su Ópera, el puente del puerto y playas de surf.",
     "priceRange": "ALTO",
     "recommendedSeason": "INVIERNO",
-    "imageUrl": "/assets/img/gallery/sydney.jpg",
+    "imageUrl": "/uploads/sydney.jpg",
     "activities": [
       {
         "title": "Tour Guiado en el Ópera House de Sídney",
@@ -230,7 +230,7 @@
         "price": 30.00,
         "category": "CULTURA",
         "requiresBooking": true,
-        "imageUrl": "/images/activities/opera-house.jpg"
+        "imageUrl": "/uploads/opera-house.jpg"
       },
       {
         "title": "Clase de Surf en Bondi Beach",
@@ -238,7 +238,7 @@
         "price": 60.00,
         "category": "AVENTURA",
         "requiresBooking": true,
-        "imageUrl": "/images/activities/surf-bondi.jpg"
+        "imageUrl": "/uploads/surf-bondi.jpg"
       }
     ]
   }
