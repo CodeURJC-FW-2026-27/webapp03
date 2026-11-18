@@ -205,18 +205,17 @@ Me he ocupado de la configuración inicial del proyecto, copiando el código de 
 
 ### 👤 Sergio Abueitah Cantero (`@SergioAbueitah`)
 
-**Tareas realizadas:** [Completar]
+**Tareas realizadas:** Me he encargado de la página de detalle. He conectado los botones para editar y borrar destinos y he añadido la creación, edición y borrado de sus actividades. También he trabajado en las validaciones de los formularios y en la subida de imágenes. 
 
 **5 commits más significativos**
-1. [Descripción del commit](URL_DEL_COMMIT_1)
-2. [Descripción del commit](URL_DEL_COMMIT_2)
-3. [Descripción del commit](URL_DEL_COMMIT_3)
-4. [Descripción del commit](URL_DEL_COMMIT_4)
-5. [Descripción del commit](URL_DEL_COMMIT_5)
+1. [Botón de borrar TERMINADO y editar CASI TERMINADO](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/30f785933ceda944afe49586a487a11917ff6ee3)
+2. [Botón de editar TERMINADO y creación de actividades CASI TERMINADO](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/e4962c36a365eacb28451d638f7c246e9799691a)
+3. [Creación de actividades TERMINADO](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/034bd6a427e579051dd5c2b110c2d67cc1a2d829)
+4. [Borrar y editar actividad TERMINADO](https://github.com/CodeURJC-FW-2026-27/webapp03/commit/ee9f9dec3e21ef4428296ccf5efb5772c86321d1)
 
 **5 ficheros principales**
-1. [`Fichero 1`](RUTA_DEL_FICHERO_1)
-2. [`Fichero 2`](RUTA_DEL_FICHERO_2)
-3. [`Fichero 3`](RUTA_DEL_FICHERO_3)
-4. [`Fichero 4`](RUTA_DEL_FICHERO_4)
-5. [`Fichero 5`](RUTA_DEL_FICHERO_5)
+1. [router.js](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/src/router.js)
+2. [travel.js](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/src/travel.js)
+3. [detail_page.html](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/views/detail_page.html)
+4. [edit_activity.html](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/views/edit_activity.html)
+5. [activity_form.html](https://github.com/CodeURJC-FW-2026-27/webapp03/blob/main/views/partials/activity_form.html)
